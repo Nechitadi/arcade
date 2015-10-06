@@ -1,3 +1,5 @@
+"use strict";
+
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
@@ -22,11 +24,15 @@ Enemy.prototype.update = function(dt) {
         this.x = -100;
         this.randomSpeed();
     }
+    this.checkCollision();
+};
+
+Enemy.prototype.checkCollision = function(){
     // Set bounding boxes for collision detection
-    enemyLeft = this.x - 50;
-    enemyRight = this.x + 50;
-    enemyTop = this.y - 40;
-    enemyBottom = this.y + 40;
+    var enemyLeft = this.x - 50;
+    var enemyRight = this.x + 50;
+    var enemyTop = this.y - 40;
+    var enemyBottom = this.y + 40;
     // Check for collisions. If there is one, reset the player to the initial position
     if (player.x > enemyLeft && player.x < enemyRight && player.y > enemyTop && player.y < enemyBottom) {
         player.characterReset();
