@@ -17,9 +17,19 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x + this.speed * dt;
+    // Reset the enemy with a new speed when it goes off screen
     if (this.x >= 505) {
         this.x = -100;
         this.randomSpeed();
+    }
+    // Set bounding boxes for collision detection
+    enemyLeft = this.x - 50;
+    enemyRight = this.x + 50;
+    enemyTop = this.y - 40;
+    enemyBottom = this.y + 40;
+    // Check for collisions. If there is one, reset the player to the initial position
+    if (player.x > enemyLeft && player.x < enemyRight && player.y > enemyTop && player.y < enemyBottom) {
+        player.characterReset();
     }
 };
 
