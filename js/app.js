@@ -45,7 +45,7 @@ var speedMultiplier = 50
 // Random speed generator
 Enemy.prototype.randomSpeed = function (){
     this.speed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
-}
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -60,19 +60,19 @@ var Player = function() {
     this.x = 200;
     this.y = 400
     this.sprite = 'images/char-horn-girl.png'
-}
+};
 
 // Update the players's position, required method for game
 Player.prototype.update = function() {
     this.x = this.x;
     this.y = this.y;
-}
+};
 
 // Resets the player position to the start position
 Player.prototype.characterReset = function() {
     this.x = 200;
     this.y = 400
-}
+};
 
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
