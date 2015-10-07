@@ -55,6 +55,7 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+// Start the player at 200 x 400 
 var Player = function() {
     this.x = 200;
     this.y = 400
@@ -88,7 +89,7 @@ Player.prototype.handleInput = function(allowedKeys) {
             break;
         case "right":
             //check for wall, otherwise move right
-            if (this.x < 505) {
+            if (this.x < 500) {
                 this.x += 101;
             }
             break;
