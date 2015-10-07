@@ -1,7 +1,6 @@
-"use strict";
-
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
+    "use strict";
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
@@ -15,11 +14,12 @@ var Enemy = function(x,y,speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+    "use strict";
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x + this.speed * dt;
-    // Reset the enemy with a new speed when it goes off screen
+    // Reset the enemy with a new speed after it goes off screen
     if (this.x >= 505) {
         this.x = -100;
         this.randomSpeed();
@@ -27,14 +27,18 @@ Enemy.prototype.update = function(dt) {
     this.checkCollision();
 };
 
+//Check for collision. Borrowed from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 Enemy.prototype.checkCollision = function(){
-    // Set bounding boxes for collision detection
-    var enemyLeft = this.x - 50;
-    var enemyRight = this.x + 50;
-    var enemyTop = this.y - 40;
-    var enemyBottom = this.y + 40;
-    // Check for collisions. If there is one, reset the player to the initial position
-    if (player.x > enemyLeft && player.x < enemyRight && player.y > enemyTop && player.y < enemyBottom) {
+    "use strict";
+    // Set hitboxes for collision detection
+    var playerBox = {x: player.x, y: player.y, width: 50, height: 50}
+    var enemyBox = {x: this.x, y: this.y, width: 60, height: 70}
+    // Check for collisions
+    if (playerBox.x < enemyBox.x + enemyBox.width &&
+        playerBox.x + playerBox.width > enemyBox.x &&
+        playerBox.y < enemyBox.y + enemyBox.height &&
+        playerBox.height + playerBox.y > enemyBox.y) {
+        // Collision detected
         player.characterReset();
     }
 };
@@ -44,42 +48,46 @@ var speedMultiplier = 50;
 
 // Random speed generator
 Enemy.prototype.randomSpeed = function (){
+    "use strict";
     this.speed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
+    "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-// Start the player at 200 x 400 
+// Start the player at 200x by 400y
 var Player = function() {
+    "use strict";
     this.x = 200;
     this.y = 400;
     this.sprite = 'images/char-horn-girl.png';
 };
 
-// Update the players's position, required method for game
+// Required method for game
 Player.prototype.update = function() {
-    this.x = this.x;
-    this.y = this.y;
 };
 
 // Resets the player position to the start position
 Player.prototype.characterReset = function() {
+    "use strict";
     this.x = 200;
     this.y = 400;
 };
 
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
+    "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 Player.prototype.handleInput = function(allowedKeys) {
+    "use strict";
     switch (allowedKeys) {
         case "left":
             //check for wall, otherwise move left
@@ -127,6 +135,7 @@ for (var i = 0; i < 3; i++) {
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
+    "use strict";
     var allowedKeys = {
         37: 'left',
         38: 'up',
