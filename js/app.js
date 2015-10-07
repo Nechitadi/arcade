@@ -40,7 +40,7 @@ Enemy.prototype.checkCollision = function(){
 };
 
 // Speed Multiplier, increases the value we get from random to something challenging
-var speedMultiplier = 50
+var speedMultiplier = 50;
 
 // Random speed generator
 Enemy.prototype.randomSpeed = function (){
@@ -58,8 +58,8 @@ Enemy.prototype.render = function() {
 // Start the player at 200 x 400 
 var Player = function() {
     this.x = 200;
-    this.y = 400
-    this.sprite = 'images/char-horn-girl.png'
+    this.y = 400;
+    this.sprite = 'images/char-horn-girl.png';
 };
 
 // Update the players's position, required method for game
@@ -71,7 +71,7 @@ Player.prototype.update = function() {
 // Resets the player position to the start position
 Player.prototype.characterReset = function() {
     this.x = 200;
-    this.y = 400
+    this.y = 400;
 };
 
 // Draw the player on the screen, required method for game
@@ -113,7 +113,7 @@ Player.prototype.handleInput = function(allowedKeys) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var player = new Player;
+var player = new Player();
 
 //allEnemies array
 var allEnemies = [];
