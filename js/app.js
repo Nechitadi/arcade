@@ -10,6 +10,7 @@ var Enemy = function(x,y,speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.checkCollision();
 };
 
 // Update the enemy's position, required method for game
@@ -24,7 +25,7 @@ Enemy.prototype.update = function(dt) {
         this.x = -100;
         this.randomSpeed();
     }
-    this.checkCollision();
+    
 };
 
 Enemy.prototype.checkCollision = function(){
