@@ -89,7 +89,7 @@ Player.prototype.handleInput = function(allowedKeys) {
             break;
         case "right":
             //check for wall, otherwise move right
-            if (this.x < 500) {
+            if (this.x < 402) {
                 this.x += 101;
             }
             break;
