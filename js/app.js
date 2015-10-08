@@ -27,22 +27,6 @@ Enemy.prototype.update = function(dt) {
     this.checkCollision();
 };
 
-//Check for collision. Borrowed from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-Enemy.prototype.checkCollision = function(){
-    "use strict";
-    // Set hitboxes for collision detection
-    var playerBox = {x: player.x, y: player.y, width: 50, height: 50}
-    var enemyBox = {x: this.x, y: this.y, width: 60, height: 70}
-    // Check for collisions
-    if (playerBox.x < enemyBox.x + enemyBox.width &&
-        playerBox.x + playerBox.width > enemyBox.x &&
-        playerBox.y < enemyBox.y + enemyBox.height &&
-        playerBox.height + playerBox.y > enemyBox.y) {
-        // Collision detected
-        player.characterReset();
-    }
-};
-
 // Speed Multiplier, increases the value we get from random to something challenging
 var speedMultiplier = 50;
 
@@ -58,6 +42,24 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//Check for collision. Borrowed from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+Enemy.prototype.checkCollision = function(){
+    "use strict";
+    // Set hitboxes for collision detection
+    var playerBox = {x: player.x, y: player.y, width: 50, height: 40};
+    var enemyBox = {x: this.x, y: this.y, width: 60, height: 70};
+    // Check for collisions
+    if (playerBox.x < enemyBox.x + enemyBox.width &&
+        playerBox.x + playerBox.width > enemyBox.x &&
+        playerBox.y < enemyBox.y + enemyBox.height &&
+        playerBox.height + playerBox.y > enemyBox.y) {
+        // Collision detected, decrement playerLives and reset the character
+        playerLives -= 1;
+        console.log (playerLives);
+        player.characterReset();
+    }
+};
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -68,6 +70,9 @@ var Player = function() {
     this.y = 400;
     this.sprite = 'images/char-horn-girl.png';
 };
+
+var playerScore = 0;
+var playerLives = 5;
 
 // Required method for game
 Player.prototype.update = function() {
@@ -86,6 +91,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Move the player according to keys pressed
 Player.prototype.handleInput = function(allowedKeys) {
     "use strict";
     switch (allowedKeys) {
@@ -102,8 +108,10 @@ Player.prototype.handleInput = function(allowedKeys) {
             }
             break;
         case "up":
-            //check if player reached water, if so reset, otherwise move up
-            if (this.y < 70) {
+            //check if player reached top of water, if so increase score and reset, otherwise move up
+            if (this.y < 0) {
+                playerScore += 20;
+                console.log (playerScore);
                 this.characterReset();
             } else {
                 this.y -= 83;
@@ -130,7 +138,7 @@ var allEnemies = [];
 for (var i = 0; i < 3; i++) {
     var startSpeed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
     allEnemies.push(new Enemy(-100, 60 + 85 * i, startSpeed));
-};
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
