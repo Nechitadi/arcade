@@ -80,6 +80,8 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
+        //fix player head staying rendered behind tiles
+        //credit to https://discussions.udacity.com/t/canvas-not-clearing-player-bug-fixed/29714
         ctx.clearRect(0,0,canvas.width,canvas.height);
         // checkCollisions();
     }
