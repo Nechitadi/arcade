@@ -80,6 +80,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
         // checkCollisions();
     }
 
