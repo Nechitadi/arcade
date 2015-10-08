@@ -53,12 +53,18 @@ Enemy.prototype.checkCollision = function(){
         playerBox.x + playerBox.width > enemyBox.x &&
         playerBox.y < enemyBox.y + enemyBox.height &&
         playerBox.height + playerBox.y > enemyBox.y) {
-        // Collision detected, decrement playerLives and reset the character
-        playerLives -= 1;
-        console.log ("lives " + playerLives);
-        player.characterReset();
+        // Collision detected, call collisionDetected function
+        this.collisionDetected();
     }
 };
+
+// Collision detected, decrement playerLives and reset the character
+Enemy.prototype.collisionDetected = function() {
+    "use strict";
+    playerLives -= 1;
+    console.log ("lives " + playerLives);
+    player.characterReset();
+}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -86,6 +92,7 @@ Player.prototype.characterReset = function() {
 };
 
 Player.prototype.success = function() {
+    "use strict";
     playerScore += 20;
     console.log ("score " + playerScore);
     speedMultiplier += 5;
@@ -116,7 +123,7 @@ Player.prototype.handleInput = function(allowedKeys) {
             }
             break;
         case "up":
-            //check if player reached top of water, if so increase score, difficulty and reset, otherwise move up
+            //check if player reached top of water, if so call success function, otherwise move up
             if (this.y < 0) {
                 this.success();
             } else {
