@@ -27,7 +27,7 @@ Enemy.prototype.update = function(dt) {
     this.checkCollision();
 };
 
-// Speed Multiplier, increases the value we get from random to something challenging
+// Speed Multiplier, we increase this value to increase difficulty
 var speedMultiplier = 50;
 
 // Random speed generator
@@ -55,7 +55,7 @@ Enemy.prototype.checkCollision = function(){
         playerBox.height + playerBox.y > enemyBox.y) {
         // Collision detected, decrement playerLives and reset the character
         playerLives -= 1;
-        console.log (playerLives);
+        console.log ("lives " + playerLives);
         player.characterReset();
     }
 };
@@ -85,6 +85,14 @@ Player.prototype.characterReset = function() {
     this.y = 400;
 };
 
+Player.prototype.success = function() {
+    playerScore += 20;
+    console.log ("score " + playerScore);
+    speedMultiplier += 5;
+    console.log("speedMultiplier " + speedMultiplier);
+    this.characterReset();
+}
+
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
     "use strict";
@@ -108,11 +116,9 @@ Player.prototype.handleInput = function(allowedKeys) {
             }
             break;
         case "up":
-            //check if player reached top of water, if so increase score and reset, otherwise move up
+            //check if player reached top of water, if so increase score, difficulty and reset, otherwise move up
             if (this.y < 0) {
-                playerScore += 20;
-                console.log (playerScore);
-                this.characterReset();
+                this.success();
             } else {
                 this.y -= 83;
             }
