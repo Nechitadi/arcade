@@ -163,7 +163,9 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        var player = new Player;
+        var playerScore = 0;
+        var playerLives = 5;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -184,6 +186,7 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
+    global.main = main;
 })(this);
 
 //Start, Stop Pause: set timeout set clear timeout

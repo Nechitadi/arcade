@@ -83,10 +83,21 @@ var playerLives = 5;
 
 // Required method for game
 Player.prototype.update = function() {
+    "use strict";
     document.getElementById("lives").innerHTML = "Lives: " + playerLives;
     document.getElementById("score").innerHTML = "Score: " + playerScore;
     document.getElementById("difficulty").innerHTML = "Difficulty: " + speedMultiplier;
+    if (playerLives === 0) {
+    Reset();
+    }
 };
+
+// Player.prototype.gameReset = function() {
+//     "use strict";
+//     var player = new Player;
+//     var playerScore = 0;
+//     var playerLives = 5;
+// }
 
 // Resets the player position to the start position
 Player.prototype.characterReset = function() {
@@ -153,7 +164,8 @@ var allEnemies = [];
 //Instantiate all enemies, set to 3
 for (var i = 0; i < 3; i++) {
     var startSpeed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
-    allEnemies.push(new Enemy(-100, 60 + 85 * i, startSpeed));
+    //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
+    allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
 }
 
 // This listens for key presses and sends the keys to your
