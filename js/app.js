@@ -85,6 +85,7 @@ var playerLives = 5;
 Player.prototype.update = function() {
     document.getElementById("lives").innerHTML = "Lives: " + playerLives;
     document.getElementById("score").innerHTML = "Score: " + playerScore;
+    document.getElementById("difficulty").innerHTML = "Difficulty: " + speedMultiplier;
 };
 
 // Resets the player position to the start position

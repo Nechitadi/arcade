@@ -2,6 +2,7 @@ body {
     text-align: center;
 }
 
+#difficulty,
 #score {
 	font: 20px Impact, Charcoal, sans-serif;
 	color: blue;
@@ -9,5 +10,5 @@ body {
 
 #lives {
 	font: 20px Impact, Charcoal, sans-serif;
-	color: blue;
+	color: red;
 }
