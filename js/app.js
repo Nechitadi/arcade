@@ -89,7 +89,7 @@ var playerLives = 5;
 
 // Required method for game
 Player.prototype.update = function() {
-    "use strict";
+    "use strict"
     // document.getElementById("lives").innerHTML = "Lives: " + playerLives;
     // document.getElementById("score").innerHTML = "Score: " + playerScore;
     // document.getElementById("difficulty").innerHTML = "Difficulty: " + speedMultiplier;
