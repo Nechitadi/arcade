@@ -19,6 +19,7 @@ var Enemy = function(x,y,speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.speedMultiplier = 40;
 };
 
 // Update the enemy's position, required method for game
@@ -38,12 +39,12 @@ Enemy.prototype.update = function(dt) {
 };
 
 // Speed Multiplier, we increase this value to increase difficulty
-var speedMultiplier = 40;
+//var speedMultiplier = 40;
 
 // Random speed generator
 Enemy.prototype.randomSpeed = function (){
     "use strict";
-    this.speed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
+    this.speed = this.speedMultiplier * Math.floor(Math.random() * 10 + 1);
 };
 // Math.floor(Math.random() * (max - min + 1)) + min
 
@@ -57,7 +58,7 @@ Enemy.prototype.render = function() {
     ctx.font = "16px sans-serif"
     ctx.fillText("Score: " + playerScore, 10, 70)
     ctx.fillText("Lives: " + playerLives, 111, 70)
-    ctx.fillText("Difficulty: " + speedMultiplier, 212, 70)
+    ctx.fillText("Difficulty: " + this.speedMultiplier, 212, 70)
 };
 
 //Check for collision. Borrowed from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
