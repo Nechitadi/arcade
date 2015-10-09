@@ -1,14 +1,3 @@
 body {
     text-align: center;
 }
-
-#difficulty,
-#score {
-	font: 20px Impact, Charcoal, sans-serif;
-	color: blue;
-}
-
-#lives {
-	font: 20px Impact, Charcoal, sans-serif;
-	color: red;
-}

@@ -39,9 +39,15 @@ Enemy.prototype.randomSpeed = function (){
 
 
 // Draw the enemy on the screen, required method for game
+// Draw the scoreboard on the screen, credit https://discussions.udacity.com/t/having-trouble-displaying-the-score/26963
 Enemy.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.fillStyle = "white"
+    ctx.font = "16px sans-serif"
+    ctx.fillText("Score: " + playerScore, 10, 70)
+    ctx.fillText("Lives: " + playerLives, 111, 70)
+    ctx.fillText("Difficulty: " + speedMultiplier, 212, 70)
 };
 
 //Check for collision. Borrowed from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
@@ -84,20 +90,20 @@ var playerLives = 5;
 // Required method for game
 Player.prototype.update = function() {
     "use strict";
-    document.getElementById("lives").innerHTML = "Lives: " + playerLives;
-    document.getElementById("score").innerHTML = "Score: " + playerScore;
-    document.getElementById("difficulty").innerHTML = "Difficulty: " + speedMultiplier;
+    // document.getElementById("lives").innerHTML = "Lives: " + playerLives;
+    // document.getElementById("score").innerHTML = "Score: " + playerScore;
+    // document.getElementById("difficulty").innerHTML = "Difficulty: " + speedMultiplier;
     if (playerLives === 0) {
     Reset();
     }
 };
 
-// Player.prototype.gameReset = function() {
-//     "use strict";
-//     var player = new Player;
-//     var playerScore = 0;
-//     var playerLives = 5;
-// }
+Player.prototype.gameReset = function() {
+    "use strict";
+    var player = new Player;
+    var playerScore = 0;
+    var playerLives = 5;
+}
 
 // Resets the player position to the start position
 Player.prototype.characterReset = function() {
