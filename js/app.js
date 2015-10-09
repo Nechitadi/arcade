@@ -1,13 +1,3 @@
-    // document.addEventListener('keyup', function(e) {
-    // "use strict";
-    // var allowedKeys = {
-    //     13: 'enter'
-    // };
-    // if (allowedKeys = 'enter') {
-    //     currentGameState = "inGame";
-    //     }
-    // });
-
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
     "use strict";
@@ -100,11 +90,9 @@ var playerLives = 5;
 // Required method for game
 Player.prototype.update = function() {
     "use strict";
-    // document.getElementById("lives").innerHTML = "Lives: " + playerLives;
-    // document.getElementById("score").innerHTML = "Score: " + playerScore;
-    // document.getElementById("difficulty").innerHTML = "Difficulty: " + speedMultiplier;
     if (playerLives === 0) {
-    reset();
+    currentGameState = gameOver;
+    //reset();
     }
 };
 
@@ -157,11 +145,6 @@ Player.prototype.handleInput = function(allowedKeys) {
             //check for bottom, otherwise move down
             if (this.y < 400) {
                 this.y += 83;
-            }
-            break;
-        case "enter":
-            if (currentGameState = "startGame") {
-                currentGameState = "inGame";
             }
             break;
     }
