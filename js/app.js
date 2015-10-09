@@ -94,7 +94,7 @@ Player.prototype.update = function() {
     // document.getElementById("score").innerHTML = "Score: " + playerScore;
     // document.getElementById("difficulty").innerHTML = "Difficulty: " + speedMultiplier;
     if (playerLives === 0) {
-    Reset();
+    reset();
     }
 };
 
