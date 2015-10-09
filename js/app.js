@@ -94,16 +94,9 @@ Player.prototype.update = function() {
     // document.getElementById("score").innerHTML = "Score: " + playerScore;
     // document.getElementById("difficulty").innerHTML = "Difficulty: " + speedMultiplier;
     if (playerLives === 0) {
-        reset();
+    reset();
     }
 };
-
-Player.prototype.gameReset = function() {
-    "use strict";
-    var player = new Player;
-    var playerScore = 0;
-    var playerLives = 5;
-}
 
 // Resets the player position to the start position
 Player.prototype.characterReset = function() {

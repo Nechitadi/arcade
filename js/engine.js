@@ -163,10 +163,18 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        var player = new Player;
-        var playerScore = 0;
-        var playerLives = 5;
-    }
+        this.characterReset;
+        speedMultiplier = 40;
+        playerScore = 0;
+        playerLives = 5;
+        allEnemies = [];
+        //Instantiate all enemies, set to 3
+        for (var i = 0; i < 3; i++) {
+            var startSpeed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
+            //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
+            allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
+        }
+    };
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
@@ -188,8 +196,8 @@ var Engine = (function(global) {
     global.ctx = ctx;
     global.main = main;
     global.reset = reset;
-    global.init = init;
-    global.update = update;
+    //global.init = init;
+    //global.update = update;
 })(this);
 
 //Start, Stop Pause: set timeout set clear timeout
