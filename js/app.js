@@ -45,7 +45,7 @@ Enemy.prototype.render = function() {
 };
 
 //Check for collision. Borrowed from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-Enemy.prototype.checkCollision = function(){
+Enemy.prototype.checkCollision = function() {
     "use strict";
     // Set hitboxes for collision detection
     var playerBox = {x: player.x, y: player.y, width: 50, height: 40};
@@ -64,8 +64,6 @@ Enemy.prototype.checkCollision = function(){
 Enemy.prototype.collisionDetected = function() {
     "use strict";
     playerLives -= 1;
-    document.getElementById("lives").innerHTML = "Lives " + playerLives;
-    console.log ("lives " + playerLives);
     player.characterReset();
 }
 
@@ -85,8 +83,8 @@ var playerLives = 5;
 
 // Required method for game
 Player.prototype.update = function() {
-    document.getElementById("lives").innerHTML = "Lives " + playerLives;
-    document.getElementById("score").innerHTML = "Score " + playerScore;
+    document.getElementById("lives").innerHTML = "Lives: " + playerLives;
+    document.getElementById("score").innerHTML = "Score: " + playerScore;
 };
 
 // Resets the player position to the start position
@@ -99,8 +97,6 @@ Player.prototype.characterReset = function() {
 Player.prototype.success = function() {
     "use strict";
     playerScore += 20;
-    console.log ("score " + playerScore);
-    document.getElementById("score").innerHTML = "Score " + playerScore;
     speedMultiplier += 5;
     console.log("speedMultiplier " + speedMultiplier);
     this.characterReset();
