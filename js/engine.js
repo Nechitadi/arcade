@@ -187,6 +187,9 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
     global.main = main;
+    global.reset = reset;
+    global.init = init;
+    global.update = update;
 })(this);
 
 //Start, Stop Pause: set timeout set clear timeout
