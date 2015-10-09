@@ -119,7 +119,7 @@ Player.prototype.characterReset = function() {
 Player.prototype.success = function() {
     "use strict";
     playerScore += 20;
-    enemy.speedMultiplier += 5;
+    Enemy.speedMultiplier += 5;
     //console.log("speedMultiplier " + speedMultiplier);
     this.characterReset();
 }
