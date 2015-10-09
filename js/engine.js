@@ -99,6 +99,8 @@ var Engine = (function(global) {
                 //credit to https://discussions.udacity.com/t/canvas-not-clearing-player-bug-fixed/29714
                 ctx.clearRect(0,0,canvas.width,canvas.height);
                 break;
+            case "gameOver":
+                break;
         }
 
     }
@@ -126,43 +128,86 @@ var Engine = (function(global) {
     function render() {
     switch (currentGameState) {
         case "startGame":
-            document.getElementById("start").innerHTML = "Press Enter To Start";
+            var rowImages = [
+                    'images/water-block.png',   // Top row is water
+                    'images/stone-block.png',   // Row 1 of 3 of stone
+                    'images/stone-block.png',   // Row 2 of 3 of stone
+                    'images/stone-block.png',   // Row 3 of 3 of stone
+                    'images/grass-block.png',   // Row 1 of 2 of grass
+                    'images/grass-block.png'    // Row 2 of 2 of grass
+                ],
+                numRows = 6,
+                numCols = 5,
+                row, col;
+
+            /* Loop through the number of rows and columns we've defined above
+             * and, using the rowImages array, draw the correct image for that
+             * portion of the "grid"
+             */
+            for (row = 0; row < numRows; row++) {
+                for (col = 0; col < numCols; col++) {
+                    /* The drawImage function of the canvas' context element
+                     * requires 3 parameters: the image to draw, the x coordinate
+                     * to start drawing and the y coordinate to start drawing.
+                     * We're using our Resources helpers to refer to our images
+                     * so that we get the benefits of caching these images, since
+                     * we're using them over and over.
+                     */
+                    ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                    ctx.fillStyle = "blue"
+                    ctx.font = "20px sans-serif"
+                    ctx.fillText("Press Enter To Start", 155, 175);
+                    ctx.fillStyle = "blue"
+                    ctx.font = "16px sans-serif"
+                    ctx.fillText("Use the arrow keys to move", 150, 195);
+                    ctx.fillText("Reach the water to score", 155, 215);
+                    ctx.fillText("Avoid the bugs to stay alive", 150, 235);
+                    ctx.fillStyle = "blue"
+                    ctx.font = "20px sans-serif"
+                    ctx.fillText("Good Luck!", 190, 255);
+                }
+            }
             break;
         case "inGame":
-                /* This array holds the relative URL to the image used
-                 * for that particular row of the game level.
-                 */
-                var rowImages = [
-                        'images/water-block.png',   // Top row is water
-                        'images/stone-block.png',   // Row 1 of 3 of stone
-                        'images/stone-block.png',   // Row 2 of 3 of stone
-                        'images/stone-block.png',   // Row 3 of 3 of stone
-                        'images/grass-block.png',   // Row 1 of 2 of grass
-                        'images/grass-block.png'    // Row 2 of 2 of grass
-                    ],
-                    numRows = 6,
-                    numCols = 5,
-                    row, col;
+            document.getElementById("start").innerHTML = "";
+            /* This array holds the relative URL to the image used
+             * for that particular row of the game level.
+             */
+            var rowImages = [
+                    'images/water-block.png',   // Top row is water
+                    'images/stone-block.png',   // Row 1 of 3 of stone
+                    'images/stone-block.png',   // Row 2 of 3 of stone
+                    'images/stone-block.png',   // Row 3 of 3 of stone
+                    'images/grass-block.png',   // Row 1 of 2 of grass
+                    'images/grass-block.png'    // Row 2 of 2 of grass
+                ],
+                numRows = 6,
+                numCols = 5,
+                row, col;
 
-                /* Loop through the number of rows and columns we've defined above
-                 * and, using the rowImages array, draw the correct image for that
-                 * portion of the "grid"
-                 */
-                for (row = 0; row < numRows; row++) {
-                    for (col = 0; col < numCols; col++) {
-                        /* The drawImage function of the canvas' context element
-                         * requires 3 parameters: the image to draw, the x coordinate
-                         * to start drawing and the y coordinate to start drawing.
-                         * We're using our Resources helpers to refer to our images
-                         * so that we get the benefits of caching these images, since
-                         * we're using them over and over.
-                         */
-                        ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
-                    }
+            /* Loop through the number of rows and columns we've defined above
+             * and, using the rowImages array, draw the correct image for that
+             * portion of the "grid"
+             */
+            for (row = 0; row < numRows; row++) {
+                for (col = 0; col < numCols; col++) {
+                    /* The drawImage function of the canvas' context element
+                     * requires 3 parameters: the image to draw, the x coordinate
+                     * to start drawing and the y coordinate to start drawing.
+                     * We're using our Resources helpers to refer to our images
+                     * so that we get the benefits of caching these images, since
+                     * we're using them over and over.
+                     */
+                    ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                 }
-                renderEntities();
-                break;
             }
+            renderEntities();
+            break;
+        case "gameOver":
+            break;
+            }
+
+
     }
 
     /* This function is called by the render function and is called on each game
