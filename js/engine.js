@@ -163,7 +163,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        this.characterReset;
+        player = new Player;
         speedMultiplier = 40;
         playerScore = 0;
         playerLives = 5;
