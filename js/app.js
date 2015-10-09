@@ -120,7 +120,7 @@ Player.prototype.success = function() {
     "use strict";
     playerScore += 20;
     speedMultiplier += 5;
-    console.log("speedMultiplier " + speedMultiplier);
+    //console.log("speedMultiplier " + speedMultiplier);
     this.characterReset();
 }
 
