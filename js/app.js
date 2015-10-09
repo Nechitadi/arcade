@@ -178,7 +178,7 @@ var allEnemies = [];
 
 //Instantiate all enemies, set to 3
 for (var i = 0; i < 3; i++) {
-    var startSpeed = enemy.speedMultiplier * Math.floor(Math.random() * 10 + 1);
+    var startSpeed = Enemy.speedMultiplier * Math.floor(Math.random() * 10 + 1);
     //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
     allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
 }
