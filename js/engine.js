@@ -83,6 +83,15 @@ var Engine = (function(global) {
     function update(dt) {
         switch (currentGameState) {
             case "startGame":
+                document.addEventListener('keyup', function(e) {
+                "use strict";
+                var allowedKeys = {
+                    13: 'enter'
+                };
+                if (allowedKeys = 'enter') {
+                    currentGameState = "inGame";
+                    }
+                });
                 break;
             case "inGame":
                 updateEntities(dt);

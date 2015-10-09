@@ -1,12 +1,12 @@
-
-//Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
-while (currentGameState = "startGame") {
-    document.addEventListener('keyup', function(e) {
-    //var key = e.which || e.keyCode;
-    if (key === 13) {
-        currentGameState = "inGame";
-    }
-});
+    // document.addEventListener('keyup', function(e) {
+    // "use strict";
+    // var allowedKeys = {
+    //     13: 'enter'
+    // };
+    // if (allowedKeys = 'enter') {
+    //     currentGameState = "inGame";
+    //     }
+    // });
 
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
@@ -159,6 +159,11 @@ Player.prototype.handleInput = function(allowedKeys) {
                 this.y += 83;
             }
             break;
+        case "enter":
+            if (currentGameState = "startGame") {
+                currentGameState = "inGame";
+            }
+            break;
     }
 };
 
@@ -185,7 +190,8 @@ document.addEventListener('keyup', function(e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        13: 'enter'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
