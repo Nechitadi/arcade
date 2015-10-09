@@ -1,3 +1,13 @@
+
+//Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
+while (currentGameState = "startGame") {
+    document.addEventListener('keyup', function(e) {
+    //var key = e.which || e.keyCode;
+    if (key === 13) {
+        currentGameState = "inGame";
+    }
+});
+
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
     "use strict";
