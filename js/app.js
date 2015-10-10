@@ -122,7 +122,7 @@ Gem.prototype.collisionDetected = function() {
     this.y = 900;
     player.playerScore += 30;
     setTimeout( function() {
-        this.gemReset();
+        gem.gemReset();
     }, 5000);
 };
 
@@ -130,7 +130,7 @@ Gem.prototype.collisionDetected = function() {
 Gem.prototype.gemReset = function() {
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
     //Gems appear at one of the following Y positions: 60, 145, 230
-    this.y = (60 + (85 * Math.floor(Math.random() * 2) + 0));
+    this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
 };
 
 /*----------------------------------------------------------------------------*/
@@ -236,7 +236,7 @@ for (var i = 0; i < 3; i++) {
 
 // Instantiate Gem
 // Gems start at a random spot aligned with one of the gravel tiles
-var gem = new Gem (101 * Math.floor(Math.random() * 4) + 0, 60 + (85 * Math.floor(Math.random() * 2) + 0));
+var gem = new Gem (101 * Math.floor(Math.random() * 4) + 0, 60 + (85 * Math.floor(Math.random() * 3) + 0));
 
 
 
