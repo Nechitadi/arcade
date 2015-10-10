@@ -45,10 +45,10 @@ Enemy.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     ctx.fillStyle = "white"
-    ctx.font = "16px sans-serif"
-    ctx.fillText("Score: " + playerScore, 10, 70)
-    ctx.fillText("Lives: " + playerLives, 111, 70)
-    ctx.fillText("Difficulty: " + speedMultiplier, 212, 70)
+    ctx.font = "16px Comic Sans MS"
+    ctx.fillText("Score: " + playerScore, 40, 70)
+    ctx.fillText("Lives: " + playerLives, 141, 70)
+    ctx.fillText("Difficulty: " + speedMultiplier, 260, 70)
 };
 
 //Check for collision. Borrowed from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
