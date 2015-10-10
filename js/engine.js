@@ -159,16 +159,19 @@ var Engine = (function(global) {
                      */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                     ctx.fillStyle = "blue"
-                    ctx.font = "20px sans-serif"
-                    ctx.fillText("Press Enter To Start", 155, 175);
+                    ctx.font = "20px Comic Sans MS"
+                    ctx.textAlign = "center";
+                    ctx.fillText("Press Enter To Start", canvas.width/2, canvas.height/4);
                     ctx.fillStyle = "blue"
-                    ctx.font = "16px sans-serif"
-                    ctx.fillText("Use the arrow keys to move", 150, 195);
-                    ctx.fillText("Reach the water to score", 155, 215);
-                    ctx.fillText("Avoid the bugs to stay alive", 150, 235);
+                    ctx.font = "16px Comic Sans MS"
+                    ctx.textAlign = "center";
+                    ctx.fillText("Use the arrow keys to move", canvas.width/2, canvas.height/3.5);
+                    ctx.fillText("Reach the water to score", canvas.width/2, canvas.height/3);
+                    ctx.fillText("Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.5);
                     ctx.fillStyle = "blue"
-                    ctx.font = "20px sans-serif"
-                    ctx.fillText("Good Luck!", 190, 255);
+                    ctx.font = "20px Comic Sans MS"
+                    ctx.textAlign = "center";
+                    ctx.fillText("Good Luck!", canvas.width/2, canvas.height/2.2);
                 }
             }
             break;
@@ -234,8 +237,9 @@ var Engine = (function(global) {
                      */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                     ctx.fillStyle = "blue"
-                    ctx.font = "20px sans-serif"
-                    ctx.fillText("Press Enter To Restart", 155, 175);
+                    ctx.font = "20px Comic Sans MS"
+                    ctx.textAlign = "center";
+                    ctx.fillText("Game Over! Press Enter To restart", canvas.width/2, canvas.height/4);
                     ctx.fillStyle = "blue"
                 }
             }
@@ -266,10 +270,10 @@ var Engine = (function(global) {
      */
     function reset() {
         currentGameState = "gameOver";
-        player = new Player;
+        player.characterReset();
         speedMultiplier = 40;
         playerScore = 0;
-        playerLives = 5; // Necessary for game to restart properly
+        playerLives = 5;
         allEnemies = [];
         //Instantiate all enemies, set to 3
         for (var i = 0; i < 3; i++) {
