@@ -46,8 +46,8 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     ctx.fillStyle = "white"
     ctx.font = "16px Comic Sans MS"
-    ctx.fillText("Score: " + player.playerScore, 40, 70)
-    ctx.fillText("Lives: " + player.playerLives, 141, 70)
+    ctx.fillText("Score: " + playerScore, 40, 70)
+    ctx.fillText("Lives: " + playerLives, 141, 70)
     ctx.fillText("Difficulty: " + speedMultiplier, 260, 70)
 };
 
@@ -70,7 +70,7 @@ Enemy.prototype.checkCollision = function() {
 // Collision detected, decrement playerLives and reset the character
 Enemy.prototype.collisionDetected = function() {
     "use strict";
-    player.playerLives -= 1;
+    playerLives -= 1;
     player.characterReset();
 }
 
@@ -80,22 +80,18 @@ Enemy.prototype.collisionDetected = function() {
 // Start the player at 200x by 400y
 var Player = function() {
     "use strict";
-    this.startingX = 200;
-    this.startingY = 400;
-    this.x = this.startingX;
-    this.y = this.startingY;
+    this.x = 200;
+    this.y = 400;
     this.sprite = 'images/char-horn-girl.png';
-    this.playerScore = 0;
-    this.playerLives = 5;
 };
 
-//var playerScore = 0;
-//var playerLives = 5;
+var playerScore = 0;
+var playerLives = 5;
 
 // Required method for game
 Player.prototype.update = function() {
     "use strict";
-    if (this.playerLives === 0) {
+    if (playerLives === 0) {
     //currentGameState = "gameOver";
     reset();
     }
@@ -104,15 +100,13 @@ Player.prototype.update = function() {
 // Resets the player position to the start position
 Player.prototype.characterReset = function() {
     "use strict";
-    this.startingX = 200;
-    this.startingY = 400;
-    this.x = this.startingX;
-    this.y = this.startingY;
+    this.x = 200;
+    this.y = 400;
 };
 
 Player.prototype.success = function() {
     "use strict";
-    this.playerScore += 20;
+    playerScore += 20;
     speedMultiplier += 5;
     //console.log("speedMultiplier " + speedMultiplier);
     this.characterReset();
