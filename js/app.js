@@ -135,7 +135,7 @@ Gem.prototype.gemReset = function() {
     this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
 };
 /*----------------------------------------------------------------------------*/
-/*--------------------------------Hearts--------------------------------------*/
+/*--------------------------------Heart---------------------------------------*/
 
 // Hearts the player should try to pick up
 var Heart = function(x,y) {
@@ -179,7 +179,7 @@ Heart.prototype.collisionDetected = function() {
     player.playerLives += 1;
     setTimeout( function() {
         heart.gemReset();
-    }, 5000);
+    }, 30000);
 };
 
 // Reset the heart to a new location
