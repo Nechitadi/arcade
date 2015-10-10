@@ -9,6 +9,7 @@ var Enemy = function(x,y,speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    //this.speedMultiplier = 40;
 };
 
 // Update the enemy's position, required method for game
@@ -107,7 +108,7 @@ Player.prototype.success = function() {
     "use strict";
     playerScore += 20;
     speedMultiplier += 5;
-    console.log("speedMultiplier " + speedMultiplier);
+    //console.log("speedMultiplier " + speedMultiplier);
     this.characterReset();
 }
 
