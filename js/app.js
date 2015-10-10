@@ -122,7 +122,7 @@ Gem.prototype.collisionDetected = function() {
     this.y = 900;
     player.playerScore += 30;
     setTimeout( function() {
-        gem.gemReset();
+        this.gemReset();
     }, 5000);
 };
 
