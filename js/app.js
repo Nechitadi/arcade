@@ -9,7 +9,6 @@ var Enemy = function(x,y,speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    //this.speedMultiplier = 40;
 };
 
 // Update the enemy's position, required method for game
@@ -80,8 +79,10 @@ Enemy.prototype.collisionDetected = function() {
 // Start the player at 200x by 400y
 var Player = function() {
     "use strict";
-    this.x = 200;
-    this.y = 400;
+    this.startingX = 200;
+    this.startingY = 400
+    this.x = this.startingX;
+    this.y = this.startingY;
     this.sprite = 'images/char-horn-girl.png';
     this.playerScore = 0
     this.playerLives = 5;
@@ -102,8 +103,10 @@ Player.prototype.update = function() {
 // Resets the player position to the start position
 Player.prototype.characterReset = function() {
     "use strict";
-    this.x = 200;
-    this.y = 400;
+    this.startingX = 200;
+    this.startingY = 400
+    this.x = this.startingX;
+    this.y = this.startingY;
 };
 
 Player.prototype.success = function() {
