@@ -25,7 +25,7 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + this.speed * dt;
     // Reset the enemy with a new speed after it goes off screen
     this.offScreenX = 505;
-    this.startingX = -100
+    this.startingX = -100;
     if (this.x >= this.offScreenX) {
         this.x = this.startingX;
         this.randomSpeed();
@@ -48,11 +48,11 @@ Enemy.prototype.randomSpeed = function (){
 Enemy.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    ctx.fillStyle = "white"
-    ctx.font = "16px Comic Sans MS"
-    ctx.fillText("Score: " + player.playerScore, 40, 70)
-    ctx.fillText("Lives: " + player.playerLives, 141, 70)
-    ctx.fillText("Difficulty: " + speedMultiplier, 260, 70)
+    ctx.fillStyle = "white";
+    ctx.font = "16px Comic Sans MS";
+    ctx.fillText("Score: " + player.playerScore, 40, 70);
+    ctx.fillText("Lives: " + player.playerLives, 141, 70);
+    ctx.fillText("Difficulty: " + speedMultiplier, 260, 70);
 };
 
 // Check for collision. Borrowed from
@@ -129,6 +129,7 @@ Gem.prototype.collisionDetected = function() {
 // Reset the gem to a new location
 Gem.prototype.gemReset = function() {
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
+    //Gems appear at one of the following Y positions: 60, 145, 230
     this.y = (60 + (85 * Math.floor(Math.random() * 2) + 0));
 };
 
@@ -142,11 +143,11 @@ Gem.prototype.gemReset = function() {
 var Player = function() {
     "use strict";
     this.startingX = 200;
-    this.startingY = 400
+    this.startingY = 400;
     this.x = this.startingX;
     this.y = this.startingY;
     this.sprite = 'images/char-horn-girl.png';
-    this.playerScore = 0
+    this.playerScore = 0;
     this.playerLives = 5;
 };
 
@@ -162,7 +163,7 @@ Player.prototype.update = function() {
 Player.prototype.characterReset = function() {
     "use strict";
     this.startingX = 200;
-    this.startingY = 400
+    this.startingY = 400;
     this.x = this.startingX;
     this.y = this.startingY;
 };
@@ -173,7 +174,7 @@ Player.prototype.success = function() {
     speedMultiplier += 5;
     //console.log("speedMultiplier " + speedMultiplier);
     this.characterReset();
-}
+};
 
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
