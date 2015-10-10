@@ -37,11 +37,10 @@ Enemy.prototype.randomSpeed = function (){
     "use strict";
     this.speed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
 };
-// Math.floor(Math.random() * (max - min + 1)) + min
-
 
 // Draw the enemy on the screen, required method for game
-// Draw the scoreboard on the screen, credit https://discussions.udacity.com/t/having-trouble-displaying-the-score/26963
+// Draw the scoreboard on the screen,
+// credit https://discussions.udacity.com/t/having-trouble-displaying-the-score/26963
 Enemy.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
