@@ -272,8 +272,8 @@ var Engine = (function(global) {
         currentGameState = "gameOver";
         player.characterReset();
         speedMultiplier = 40;
-        playerScore = 0;
-        playerLives = 5;
+        player.playerScore = 0;
+        player.playerLives = 5;
         allEnemies = [];
         //Instantiate all enemies, set to 3
         for (var i = 0; i < 3; i++) {
