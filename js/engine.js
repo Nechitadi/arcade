@@ -122,6 +122,9 @@ var Engine = (function(global) {
         });
         player.update();
         gem.update();
+        // allGems.forEach(function(gem) {
+        //     gem.update();
+        // });
     }
 
     /* This function initially draws the "game level", it will then call
