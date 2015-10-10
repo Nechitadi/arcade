@@ -92,8 +92,8 @@ var playerLives = 5;
 Player.prototype.update = function() {
     "use strict";
     if (playerLives === 0) {
-    currentGameState = gameOver;
-    //reset();
+    //currentGameState = "gameOver";
+    reset();
     }
 };
 
