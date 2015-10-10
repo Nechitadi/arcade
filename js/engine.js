@@ -81,7 +81,6 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        console.log ("update " + currentGameState);
         // Credit https://discussions.udacity.com/t/finite-state-machine-to-model-game-states/21955
         // for Finite State Machine
         switch (currentGameState) {
@@ -164,18 +163,18 @@ var Engine = (function(global) {
                      * we're using them over and over.
                      */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
-                    ctx.fillStyle = "blue"
-                    ctx.font = "20px Comic Sans MS"
+                    ctx.fillStyle = "blue";
+                    ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Press Enter To Start", canvas.width/2, canvas.height/4);
-                    ctx.fillStyle = "blue"
-                    ctx.font = "16px Comic Sans MS"
+                    ctx.fillStyle = "blue";
+                    ctx.font = "16px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Use the arrow keys to move", canvas.width/2, canvas.height/3.5);
                     ctx.fillText("Reach the water and collect gems to score", canvas.width/2, canvas.height/3);
                     ctx.fillText("Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.5);
-                    ctx.fillStyle = "blue"
-                    ctx.font = "20px Comic Sans MS"
+                    ctx.fillStyle = "blue";
+                    ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Good Luck!", canvas.width/2, canvas.height/2.2);
                 }
@@ -242,8 +241,8 @@ var Engine = (function(global) {
                      * we're using them over and over.
                      */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
-                    ctx.fillStyle = "blue"
-                    ctx.font = "20px Comic Sans MS"
+                    ctx.fillStyle = "blue";
+                    ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Game Over! Press Enter To restart", canvas.width/2, canvas.height/4);
                 }
@@ -287,7 +286,7 @@ var Engine = (function(global) {
             //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
             allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
         }
-    };
+    }
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
