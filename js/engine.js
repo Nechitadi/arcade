@@ -82,6 +82,8 @@ var Engine = (function(global) {
      */
     function update(dt) {
         console.log ("update " + currentGameState);
+        // Credit https://discussions.udacity.com/t/finite-state-machine-to-model-game-states/21955
+        // for Finite State Machine
         switch (currentGameState) {
             case "startGame":
                 // Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
@@ -170,7 +172,7 @@ var Engine = (function(global) {
                     ctx.font = "16px Comic Sans MS"
                     ctx.textAlign = "center";
                     ctx.fillText("Use the arrow keys to move", canvas.width/2, canvas.height/3.5);
-                    ctx.fillText("Reach the water to score", canvas.width/2, canvas.height/3);
+                    ctx.fillText("Reach the water and collect gems to score", canvas.width/2, canvas.height/3);
                     ctx.fillText("Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.5);
                     ctx.fillStyle = "blue"
                     ctx.font = "20px Comic Sans MS"
@@ -244,7 +246,6 @@ var Engine = (function(global) {
                     ctx.font = "20px Comic Sans MS"
                     ctx.textAlign = "center";
                     ctx.fillText("Game Over! Press Enter To restart", canvas.width/2, canvas.height/4);
-                    ctx.fillStyle = "blue"
                 }
             }
             break;
