@@ -1,3 +1,7 @@
+
+/*----------------------------------------------------------------------------*/
+/*-----------------------------Enemy------------------------------------------*/
+
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
     "use strict";
@@ -41,7 +45,8 @@ Enemy.prototype.randomSpeed = function (){
 
 
 // Draw the enemy on the screen, required method for game
-// Draw the scoreboard on the screen, credit https://discussions.udacity.com/t/having-trouble-displaying-the-score/26963
+// Draw the scoreboard on the screen, credit
+// https://discussions.udacity.com/t/having-trouble-displaying-the-score/26963
 Enemy.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -52,7 +57,8 @@ Enemy.prototype.render = function() {
     ctx.fillText("Difficulty: " + speedMultiplier, 260, 70)
 };
 
-//Check for collision. Borrowed from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+// Check for collision. Borrowed from
+// https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 Enemy.prototype.checkCollision = function() {
     "use strict";
     // Set hitboxes for collision detection
@@ -74,6 +80,8 @@ Enemy.prototype.collisionDetected = function() {
     player.playerLives -= 1;
     player.characterReset();
 }
+/*----------------------------------------------------------------------------*/
+/*------------------------------player----------------------------------------*/
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -89,9 +97,6 @@ var Player = function() {
     this.playerScore = 0
     this.playerLives = 5;
 };
-
-// var playerScore = 0;
-// var playerLives = 5;
 
 // Required method for game
 Player.prototype.update = function() {
@@ -142,7 +147,8 @@ Player.prototype.handleInput = function(allowedKeys) {
             }
             break;
         case "up":
-            //check if player reached top of water, if so call success function, otherwise move up
+            //check if player reached top of water, if so call success function,
+            // otherwise move up
             if (this.y < 0) {
                 this.success();
             } else {
@@ -158,6 +164,9 @@ Player.prototype.handleInput = function(allowedKeys) {
     }
 };
 
+/*----------------------------------------------------------------------------*/
+/*-------------------------Instantiate Objects--------------------------------*/
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -172,6 +181,9 @@ for (var i = 0; i < 3; i++) {
     //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
     allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
 }
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------Event Listener-----------------------------------*/
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
