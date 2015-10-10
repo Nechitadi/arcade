@@ -79,9 +79,63 @@ Enemy.prototype.collisionDetected = function() {
     "use strict";
     player.playerLives -= 1;
     player.characterReset();
-}
+};
+
 /*----------------------------------------------------------------------------*/
-/*------------------------------player----------------------------------------*/
+/*--------------------------------Gem-----------------------------------------*/
+
+// Gems the player should try to pick up
+var Gem = function(x,y) {
+    "use strict";
+    this.x = x;
+    this.y = y;
+    this.sprite = 'images/Gem_Orange.png';
+};
+
+Gem.prototype.update = function() {
+    this.checkCollision();
+};
+
+Gem.prototype.render = function() {
+    "use strict";
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+Gem.prototype.checkCollision = function() {
+    "use strict";
+    // Set hitboxes for collision detection
+    var playerBox = {x: player.x, y: player.y, width: 50, height: 40};
+    var gemBox = {x: this.x, y: this.y, width: 60, height: 70};
+    // Check for collisions
+    if (playerBox.x < gemBox.x + gemBox.width &&
+        playerBox.x + playerBox.width > gemBox.x &&
+        playerBox.y < gemBox.y + gemBox.height &&
+        playerBox.height + playerBox.y > gemBox.y) {
+        // Collision detected, call collisionDetected function
+        this.collisionDetected();
+    }
+};
+
+// Gem collision detected, hide the gem off canvas,
+// Wait, then reset the gem and increment player score
+Gem.prototype.collisionDetected = function() {
+    "use strict";
+    this.x = 900;
+    this.y = 900;
+    player.playerScore += 30;
+    setTimeout( function() {
+        gem.gemReset();
+    }, 5000);
+};
+
+// Reset the gem to a new location
+Gem.prototype.gemReset = function() {
+    this.x = (101 * Math.floor(Math.random() * 4) + 0);
+    this.y = (60 + (85 * Math.floor(Math.random() * 2) + 0));
+};
+
+/*----------------------------------------------------------------------------*/
+/*------------------------------Player----------------------------------------*/
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -102,7 +156,6 @@ var Player = function() {
 Player.prototype.update = function() {
     "use strict";
     if (this.playerLives === 0) {
-    //currentGameState = "gameOver";
     reset();
     }
 };
@@ -175,12 +228,18 @@ var player = new Player();
 //allEnemies array
 var allEnemies = [];
 
-//Instantiate all enemies, set to 3
+// Instantiate all enemies, set to 3
 for (var i = 0; i < 3; i++) {
     var startSpeed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
     //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
     allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
 }
+
+// Instantiate Gem
+// Gems start at a random spot aligned with one of the gravel tiles
+var gem = new Gem (101 * Math.floor(Math.random() * 4) + 0, 60 + (85 * Math.floor(Math.random() * 2) + 0));
+
+
 
 /*----------------------------------------------------------------------------*/
 /*---------------------------Event Listener-----------------------------------*/
