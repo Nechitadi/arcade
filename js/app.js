@@ -20,8 +20,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x = this.x + this.speed * dt;
     // Reset the enemy with a new speed after it goes off screen
-    if (this.x >= 505) {
-        this.x = -100;
+    this.offScreenX = 505;
+    this.startingX = -100
+    if (this.x >= this.offScreenX) {
+        this.x = this.startingX;
         this.randomSpeed();
     }
     this.checkCollision();
