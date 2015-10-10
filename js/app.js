@@ -91,6 +91,7 @@ var Gem = function(x,y) {
 };
 
 Gem.prototype.update = function() {
+    "use strict";
     this.checkCollision();
 };
 
@@ -128,6 +129,7 @@ Gem.prototype.collisionDetected = function() {
 
 // Reset the gem to a new location
 Gem.prototype.gemReset = function() {
+    "use strict";
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
     //Gems appear at one of the following Y positions: 60, 145, 230
     this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
