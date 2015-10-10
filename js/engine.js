@@ -84,13 +84,11 @@ var Engine = (function(global) {
         console.log ("update " + currentGameState);
         switch (currentGameState) {
             case "startGame":
-                document.addEventListener('keyup', function(e) {
-                "use strict";
-                var allowedKeys = {
-                    13: 'enter'
-                };
-                if (allowedKeys = 'enter') {
-                    currentGameState = "inGame";
+                // Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
+                document.addEventListener('keypress', function (e) {
+                    var key = e.which || e.keyCode;
+                    if (key === 13) {
+                        currentGameState = "inGame";
                     }
                 });
                 break;
@@ -101,13 +99,10 @@ var Engine = (function(global) {
                 ctx.clearRect(0,0,canvas.width,canvas.height);
                 break;
             case "gameOver":
-                document.addEventListener('keyup', function(e) {
-                "use strict";
-                var allowedKeys = {
-                    13: 'enter'
-                };
-                if (allowedKeys = 'enter') {
-                    currentGameState = "inGame";
+                document.addEventListener('keypress', function (e) {
+                    var key = e.which || e.keyCode;
+                    if (key === 13) {
+                        currentGameState = "inGame";
                     }
                 });
                 break;
