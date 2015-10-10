@@ -134,6 +134,61 @@ Gem.prototype.gemReset = function() {
     //Gems appear at one of the following Y positions: 60, 145, 230
     this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
 };
+/*----------------------------------------------------------------------------*/
+/*--------------------------------Hearts--------------------------------------*/
+
+// Hearts the player should try to pick up
+var Heart = function(x,y) {
+    "use strict";
+    this.x = x;
+    this.y = y;
+    this.sprite = 'images/Heart.png';
+};
+
+Heart.prototype.update = function() {
+    "use strict";
+    this.checkCollision();
+};
+
+Heart.prototype.render = function() {
+    "use strict";
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+Heart.prototype.checkCollision = function() {
+    "use strict";
+    // Set hitboxes for collision detection
+    var playerBox = {x: player.x, y: player.y, width: 50, height: 40};
+    var heartBox = {x: this.x, y: this.y, width: 60, height: 70};
+    // Check for collisions
+    if (playerBox.x < heartBox.x + heartBox.width &&
+        playerBox.x + playerBox.width > heartBox.x &&
+        playerBox.y < heartBox.y + heartBox.height &&
+        playerBox.height + playerBox.y > heartBox.y) {
+        // Collision detected, call collisionDetected function
+        this.collisionDetected();
+    }
+};
+
+// Heart collision detected, hide the heart off canvas,
+// Increment player lives, wait, then reset the heart and 
+Heart.prototype.collisionDetected = function() {
+    "use strict";
+    this.x = 900;
+    this.y = 900;
+    player.playerLives += 1;
+    setTimeout( function() {
+        heart.gemReset();
+    }, 5000);
+};
+
+// Reset the heart to a new location
+Heart.prototype.gemReset = function() {
+    "use strict";
+    this.x = (101 * Math.floor(Math.random() * 4) + 0);
+    //Gems appear at one of the following Y positions: 60, 145, 230
+    this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
+};
 
 /*----------------------------------------------------------------------------*/
 /*------------------------------Player----------------------------------------*/
@@ -240,7 +295,9 @@ for (var i = 0; i < 3; i++) {
 // Gems start at a random spot aligned with one of the gravel tiles
 var gem = new Gem (101 * Math.floor(Math.random() * 4) + 0, 60 + (85 * Math.floor(Math.random() * 3) + 0));
 
-
+// Instantiate heart
+// Hearts start at a random spot aligned with one of the gravel tiles
+var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 60 + (85 * Math.floor(Math.random() * 3) + 0));
 
 /*----------------------------------------------------------------------------*/
 /*---------------------------Event Listener-----------------------------------*/
