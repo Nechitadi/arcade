@@ -34,6 +34,7 @@ Enemy.prototype.update = function(dt) {
 };
 
 // Speed Multiplier, we increase this value to increase difficulty
+// Tried making this a property of enemy, didn't work
 var speedMultiplier = 40;
 
 // Random speed generator
@@ -90,16 +91,19 @@ var Gem = function(x,y) {
     this.sprite = 'images/Gem_Orange.png';
 };
 
+// Update gem, call checkCollision
 Gem.prototype.update = function() {
     "use strict";
     this.checkCollision();
 };
 
+// Draw the gem to the screen
 Gem.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//Check for collision
 Gem.prototype.checkCollision = function() {
     "use strict";
     // Set hitboxes for collision detection
@@ -116,22 +120,23 @@ Gem.prototype.checkCollision = function() {
 };
 
 // Gem collision detected, hide the gem off canvas,
-// Wait, then reset the gem and increment player score
+// Increment player score, wait 5 seconds, then reset the gem
 Gem.prototype.collisionDetected = function() {
     "use strict";
     this.x = 900;
     this.y = 900;
     player.playerScore += 30;
     setTimeout( function() {
-        gem.gemReset();
+        gem.gemReset(); // this.gemReset() doesn't work
     }, 5000);
 };
 
 // Reset the gem to a new location
 Gem.prototype.gemReset = function() {
     "use strict";
+    // Gems appear at one of the following x positions: 0, 101, 202, 303, 404
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
-    //Gems appear at one of the following Y positions: 60, 145, 230
+    // Gems appear at one of the following Y positions: 60, 145, 230
     this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
 };
 /*----------------------------------------------------------------------------*/
@@ -145,16 +150,19 @@ var Heart = function(x,y) {
     this.sprite = 'images/Heart.png';
 };
 
+// Update heart, call checkCollision
 Heart.prototype.update = function() {
     "use strict";
     this.checkCollision();
 };
 
+// Draw the heart to the screen
 Heart.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Check for collision
 Heart.prototype.checkCollision = function() {
     "use strict";
     // Set hitboxes for collision detection
@@ -171,23 +179,23 @@ Heart.prototype.checkCollision = function() {
 };
 
 // Heart collision detected, hide the heart off canvas,
-// Increment player lives, wait, then reset the heart and
+// Increment player lives, wait 30 seconds, then reset the heart
 Heart.prototype.collisionDetected = function() {
     "use strict";
     this.x = 900;
     this.y = 900;
     player.playerLives += 1;
     setTimeout( function() {
-        heart.gemReset();
+        heart.gemReset(); // this.gemReset() doesn't work
     }, 30000);
 };
 
 // Reset the heart to a new location
 Heart.prototype.gemReset = function() {
     "use strict";
-    //Gems appear at one of the following x positions: 0, 101, 202, 303, 404
+    //Hearts appear at one of the following x positions: 0, 101, 202, 303, 404
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
-    //Gems appear at one of the following Y positions: 60, 145, 230
+    //Hearts appear at one of the following Y positions: 60, 145, 230
     this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
 };
 
@@ -296,11 +304,13 @@ for (var i = 0; i < 3; i++) {
 
 // Instantiate Gem
 // Gems start at a random spot aligned with one of the gravel tiles
-var gem = new Gem (101 * Math.floor(Math.random() * 4) + 0, 60 + (85 * Math.floor(Math.random() * 3) + 0));
+var gem = new Gem (101 * Math.floor(Math.random() * 4) + 0, 60 +
+    (85 * Math.floor(Math.random() * 3) + 0));
 
 // Instantiate heart
 // Hearts start at a random spot aligned with one of the gravel tiles
-var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 60 + (85 * Math.floor(Math.random() * 3) + 0));
+var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 60 +
+    (85 * Math.floor(Math.random() * 3) + 0));
 
 /*----------------------------------------------------------------------------*/
 /*---------------------------Event Listener-----------------------------------*/
