@@ -11,11 +11,11 @@ Or, go to http://lacyjpr.github.io/arcade/
 
 
 Gameplay:
-Press enter to start the game.
-Use the arrow keys to move.
-The objective is to reach the top of the water and collect gems to score.
-Each time you reach the top of the water, the difficulty increases.
-Avoid the bugs, they kill you. You have five lives.
+1. Press enter to start the game.
+2. Use the arrow keys to move.
+3. The objective is to reach the top of the water and collect gems to score.
+4. Each time you reach the top of the water, the difficulty increases.
+5. Avoid the bugs, they kill you. You have five lives.
 
 Resources I referred to while working on this project:
 http://irene.marin.cat/udacity/project3/index.html
