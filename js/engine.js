@@ -190,9 +190,9 @@ var Engine = (function(global) {
                     'images/grass-block.png',   // Row 1 of 2 of grass
                     'images/grass-block.png'    // Row 2 of 2 of grass
                 ],
-                // numRows = 6,
-                // numCols = 5,
-                // row, col;
+                numRows = 6,
+                numCols = 5,
+                row, col;
 
             /* Loop through the number of rows and columns we've defined above
              * and, using the rowImages array, draw the correct image for that
@@ -222,9 +222,9 @@ var Engine = (function(global) {
                     'images/grass-block.png',   // Row 1 of 2 of grass
                     'images/grass-block.png'    // Row 2 of 2 of grass
                 ],
-                // numRows = 6,
-                // numCols = 5,
-                // row, col;
+                numRows = 6,
+                numCols = 5,
+                row, col;
 
             for (row = 0; row < numRows; row++) {
                 for (col = 0; col < numCols; col++) {
@@ -237,8 +237,6 @@ var Engine = (function(global) {
             }
             break;
             }
-
-
     }
 
     /* This function is called by the render function and is called on each game
@@ -268,10 +266,11 @@ var Engine = (function(global) {
         player.characterReset();
         speedMultiplier = 40;
         player.playerScore = 0;
-        player.playerLives = 5;
+        player.playerLives = 3;
         allEnemies = [];
         //Instantiate all enemies, set to 3
         for (var i = 0; i < 3; i++) {
+            //startSpeed is a random number from 1-10 times speedMultiplier
             var startSpeed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
             //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
             allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
