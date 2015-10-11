@@ -86,6 +86,7 @@ var Engine = (function(global) {
         switch (currentGameState) {
             case "startGame":
                 // Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
+                // Listen for enter key, switch game state to inGame when pressed
                 document.addEventListener('keypress', function (e) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
@@ -93,13 +94,15 @@ var Engine = (function(global) {
                     }
                 });
                 break;
+            // Here we do the "normal" things we'd do when the game is running, mainly updateEntities
             case "inGame":
                 updateEntities(dt);
-                //fix player head staying rendered behind tiles
-                //credit to https://discussions.udacity.com/t/canvas-not-clearing-player-bug-fixed/29714
+                // Fix player head staying rendered behind top tiles
+                // Credit to https://discussions.udacity.com/t/canvas-not-clearing-player-bug-fixed/29714
                 ctx.clearRect(0,0,canvas.width,canvas.height);
                 break;
             case "gameOver":
+                // Listen for enter key, switch game state to inGame when pressed
                 document.addEventListener('keypress', function (e) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
@@ -124,9 +127,6 @@ var Engine = (function(global) {
         player.update();
         gem.update();
         heart.update();
-        // allGems.forEach(function(gem) {
-        //     gem.update();
-        // });
     }
 
     /* This function initially draws the "game level", it will then call
@@ -138,6 +138,7 @@ var Engine = (function(global) {
     function render() {
     switch (currentGameState) {
         case "startGame":
+            // Display an empty game board with text here
             var rowImages = [
                     'images/water-block.png',   // Top row is water
                     'images/stone-block.png',   // Row 1 of 3 of stone
@@ -150,39 +151,23 @@ var Engine = (function(global) {
                 numCols = 5,
                 row, col;
 
-            /* Loop through the number of rows and columns we've defined above
-             * and, using the rowImages array, draw the correct image for that
-             * portion of the "grid"
-             */
             for (row = 0; row < numRows; row++) {
                 for (col = 0; col < numCols; col++) {
-                    /* The drawImage function of the canvas' context element
-                     * requires 3 parameters: the image to draw, the x coordinate
-                     * to start drawing and the y coordinate to start drawing.
-                     * We're using our Resources helpers to refer to our images
-                     * so that we get the benefits of caching these images, since
-                     * we're using them over and over.
-                     */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                     ctx.fillStyle = "red";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Press Enter To Start", canvas.width/2, canvas.height/4);
-                    // ctx.fillStyle = "blue";
-                    // ctx.font = "16px Comic Sans MS";
-                    // ctx.textAlign = "center";
                     ctx.fillText("Use the arrow keys to move", canvas.width/2, canvas.height/3.3);
                     ctx.fillText("Reach the water and collect gems to score", canvas.width/2, canvas.height/3.0);
                     ctx.fillText("Collect hearts for extra lives", canvas.width/2, canvas.height/2.7);
                     ctx.fillText("Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.5);
-                    // ctx.fillStyle = "blue";
-                    // ctx.font = "20px Comic Sans MS";
-                    // ctx.textAlign = "center";
                     ctx.fillText("Good Luck!", canvas.width/2, canvas.height/2.2);
                 }
             }
             break;
         case "inGame":
+            // Draw the actual game board here, plus renderEntities so we have a game
             /* This array holds the relative URL to the image used
              * for that particular row of the game level.
              */
@@ -217,6 +202,7 @@ var Engine = (function(global) {
             renderEntities();
             break;
         case "gameOver":
+            // Display an empty game board with text here
             var rowImages = [
                     'images/water-block.png',   // Top row is water
                     'images/stone-block.png',   // Row 1 of 3 of stone
@@ -229,19 +215,8 @@ var Engine = (function(global) {
                 numCols = 5,
                 row, col;
 
-            /* Loop through the number of rows and columns we've defined above
-             * and, using the rowImages array, draw the correct image for that
-             * portion of the "grid"
-             */
             for (row = 0; row < numRows; row++) {
                 for (col = 0; col < numCols; col++) {
-                    /* The drawImage function of the canvas' context element
-                     * requires 3 parameters: the image to draw, the x coordinate
-                     * to start drawing and the y coordinate to start drawing.
-                     * We're using our Resources helpers to refer to our images
-                     * so that we get the benefits of caching these images, since
-                     * we're using them over and over.
-                     */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                     ctx.fillStyle = "red";
                     ctx.font = "20px Comic Sans MS";
@@ -276,6 +251,7 @@ var Engine = (function(global) {
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
+    //Reset the game to its original state and change currentGameState to gameOver
     function reset() {
         currentGameState = "gameOver";
         player.characterReset();
