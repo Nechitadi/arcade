@@ -171,7 +171,7 @@ Heart.prototype.checkCollision = function() {
 };
 
 // Heart collision detected, hide the heart off canvas,
-// Increment player lives, wait, then reset the heart and 
+// Increment player lives, wait, then reset the heart and
 Heart.prototype.collisionDetected = function() {
     "use strict";
     this.x = 900;
@@ -185,6 +185,7 @@ Heart.prototype.collisionDetected = function() {
 // Reset the heart to a new location
 Heart.prototype.gemReset = function() {
     "use strict";
+    //Gems appear at one of the following x positions: 0, 101, 202, 303, 404
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
     //Gems appear at one of the following Y positions: 60, 145, 230
     this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
@@ -209,6 +210,7 @@ var Player = function() {
 };
 
 // Required method for game
+// Check if playerLives is 0, if so call reset
 Player.prototype.update = function() {
     "use strict";
     if (this.playerLives === 0) {
@@ -225,6 +227,7 @@ Player.prototype.characterReset = function() {
     this.y = this.startingY;
 };
 
+// Increment score and increase difficulty when player reaches top of water
 Player.prototype.success = function() {
     "use strict";
     this.playerScore += 20;
@@ -284,7 +287,7 @@ var player = new Player();
 //allEnemies array
 var allEnemies = [];
 
-// Instantiate all enemies, set to 3
+// Instantiate all enemies, set to 3, push to allEnemies array
 for (var i = 0; i < 3; i++) {
     var startSpeed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
     //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
