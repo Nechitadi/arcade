@@ -171,10 +171,10 @@ var Engine = (function(global) {
                     ctx.fillStyle = "blue";
                     ctx.font = "16px Comic Sans MS";
                     ctx.textAlign = "center";
-                    // ctx.fillText("Use the arrow keys to move", canvas.width/2, canvas.height/3.3);
-                    // ctx.fillText("Reach the water and collect gems to score", canvas.width/2, canvas.height/3.0);
-                    // ctx.fillText("Collect hearts for extra lives", canvas.width/2, canvas.height/2.7);
-                    ctx.fillText("Use the arrow keys to move. Reach the water and collect gems to score. Collect hearts for extra lives. Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.5);
+                    ctx.fillText("Use the arrow keys to move", canvas.width/2, canvas.height/3.3);
+                    ctx.fillText("Reach the water and collect gems to score", canvas.width/2, canvas.height/3.0);
+                    ctx.fillText("Collect hearts for extra lives", canvas.width/2, canvas.height/2.7);
+                    ctx.fillText("Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.5);
                     ctx.fillStyle = "blue";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
