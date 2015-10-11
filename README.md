@@ -3,11 +3,13 @@ frontend-nanodegree-arcade-game
 This is my Frogger clone for Udacity's Front-End Web Developer Nanodegree
 
 
-Installation: Download the repository.
-(Click download ZIP on the left, then extract the zip file to your computer, or clone the repository using git.)
-Double-click index.html
+Installation: 
 
-Or, go to http://lacyjpr.github.io/arcade/
+* Download the repository.
+* (Click download ZIP on the left, then extract the zip file to your computer, or clone the repository using git.)
+* Double-click index.html to open the game in your browser.
+
+Or, navigate to http://lacyjpr.github.io/arcade/
 
 
 Gameplay:
