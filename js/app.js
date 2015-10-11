@@ -35,6 +35,7 @@ Enemy.prototype.update = function(dt) {
 
 // Speed Multiplier, we increase this value to increase difficulty
 // Tried making this a property of enemy, didn't work
+// Credit https://github.com/ncaron/frontend-nanodegree-arcade-game/blob/master/js/app.js
 var speedMultiplier = 40;
 
 // Random speed generator
