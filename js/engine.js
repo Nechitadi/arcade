@@ -174,7 +174,7 @@ var Engine = (function(global) {
                     ctx.fillText("Use the arrow keys to move", canvas.width/2, canvas.height/3.4);
                     ctx.fillText("Reach the water and collect gems to score", canvas.width/2, canvas.height/3);
                     ctx.fillText("Collect hearts for extra lives", canvas.width/2, canvas.height/2.6);
-                    ctx.fillText("Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.4);
+                    ctx.fillText("Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.3);
                     ctx.fillStyle = "blue";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
