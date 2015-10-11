@@ -298,11 +298,7 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
-    global.main = main;
     global.reset = reset;
-    global.update = update;
-    global.render = render;
-    global.currentGameState = currentGameState;
+
 })(this);
 
-//Start, Stop Pause: set timeout set clear timeout
