@@ -246,7 +246,7 @@ var Engine = (function(global) {
                     ctx.fillStyle = "red";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
-                    ctx.fillText("Game Over! Press Enter To restart", canvas.width/2, canvas.height/4);
+                    ctx.fillText("Game Over! Press Enter To Restart", canvas.width/2, canvas.height/4);
                 }
             }
             break;
