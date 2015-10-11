@@ -164,20 +164,20 @@ var Engine = (function(global) {
                      * we're using them over and over.
                      */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
-                    ctx.fillStyle = "blue";
+                    ctx.fillStyle = "yellow";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Press Enter To Start", canvas.width/2, canvas.height/4);
-                    ctx.fillStyle = "blue";
-                    ctx.font = "16px Comic Sans MS";
-                    ctx.textAlign = "center";
+                    // ctx.fillStyle = "blue";
+                    // ctx.font = "16px Comic Sans MS";
+                    // ctx.textAlign = "center";
                     ctx.fillText("Use the arrow keys to move", canvas.width/2, canvas.height/3.3);
                     ctx.fillText("Reach the water and collect gems to score", canvas.width/2, canvas.height/3.0);
                     ctx.fillText("Collect hearts for extra lives", canvas.width/2, canvas.height/2.7);
                     ctx.fillText("Avoid the bugs to stay alive", canvas.width/2, canvas.height/2.5);
-                    ctx.fillStyle = "blue";
-                    ctx.font = "20px Comic Sans MS";
-                    ctx.textAlign = "center";
+                    // ctx.fillStyle = "blue";
+                    // ctx.font = "20px Comic Sans MS";
+                    // ctx.textAlign = "center";
                     ctx.fillText("Good Luck!", canvas.width/2, canvas.height/2.2);
                 }
             }
@@ -243,7 +243,7 @@ var Engine = (function(global) {
                      * we're using them over and over.
                      */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
-                    ctx.fillStyle = "blue";
+                    ctx.fillStyle = "yellow";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Game Over! Press Enter To restart", canvas.width/2, canvas.height/4);
