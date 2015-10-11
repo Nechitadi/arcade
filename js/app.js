@@ -208,6 +208,7 @@ Heart.prototype.gemReset = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 // Start the player at 200x by 400y
+// credit https://discussions.udacity.com/t/need-help-refactoring/32466
 var Player = function() {
     "use strict";
     this.startingX = 200;
@@ -242,7 +243,6 @@ Player.prototype.success = function() {
     "use strict";
     this.playerScore += 20;
     speedMultiplier += 5;
-    //console.log("speedMultiplier " + speedMultiplier);
     this.characterReset();
 };
 
@@ -294,7 +294,7 @@ Player.prototype.handleInput = function(allowedKeys) {
 // Place the player object in a variable called player
 var player = new Player();
 
-//allEnemies array
+// empty allEnemies array
 var allEnemies = [];
 
 // Instantiate all enemies, set to 3, push to allEnemies array
