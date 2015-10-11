@@ -28,3 +28,7 @@ Resources I referred to while working on this project:
 * https://github.com/ncaron/frontend-nanodegree-arcade-game/blob/master/js/app.js
 * https://github.com/asaki444/frontendfrogger/blob/master/js/app.js
 * The Udacity Front-End Nanodegree Forums: https://discussions.udacity.com/c/nd001-project-3-classic-arcade-game-clone
+* https://discussions.udacity.com/t/having-trouble-displaying-the-score/26963
+* https://discussions.udacity.com/t/need-help-refactoring/32466
+* https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+
