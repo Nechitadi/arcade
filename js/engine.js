@@ -164,7 +164,7 @@ var Engine = (function(global) {
                      * we're using them over and over.
                      */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
-                    ctx.fillStyle = "yellow";
+                    ctx.fillStyle = "red";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Press Enter To Start", canvas.width/2, canvas.height/4);
@@ -243,7 +243,7 @@ var Engine = (function(global) {
                      * we're using them over and over.
                      */
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
-                    ctx.fillStyle = "yellow";
+                    ctx.fillStyle = "red";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Game Over! Press Enter To restart", canvas.width/2, canvas.height/4);
