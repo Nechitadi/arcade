@@ -205,7 +205,7 @@ var Player = function() {
     this.y = this.startingY;
     this.sprite = 'images/char-horn-girl.png';
     this.playerScore = 0;
-    this.playerLives = 5;
+    this.playerLives = 3;
 };
 
 // Required method for game
