@@ -93,15 +93,6 @@ var Engine = (function(global) {
                     if (key === 13) {
                         currentGameState = "inGame";
                     }
-                    //else if (key === 37) {
-                    //     currentGameState = "inGame";
-                    // } else if (key === 38) {
-                    //     currentGameState = "inGame";
-                    // } else if (key === 39) {
-                    //     currentGameState = "inGame";
-                    // } else if (key === 40) {
-                    //     currentGameState = "inGame";
-                    // }
                 });
                 break;
             // Here we do the "normal" things we'd do when the game is running, mainly updateEntities
@@ -113,13 +104,28 @@ var Engine = (function(global) {
                 ctx.clearRect(0,0,canvas.width,canvas.height);
                 break;
             case "gameOver":
+                document.removeEventListener('keyup', function(e) {
+                "use strict";
+                var allowedKeys = {
+                    37: 'left',
+                    38: 'up',
+                    39: 'right',
+                    40: 'down'
+                };
+                });
+                // document.removeEventListener('keypress', function (e) {
+                //     var key = e.which || e.keyCode;
+                //     if (key === 13) {
+                //         currentGameState = "inGame";
+                //     }
+                // });
                 //console.log(currentGameState);
                 // Listen for enter key, switch game state to inGame when pressed
-                document.addEventListener('keypress', function (e) {
-                    var key = e.which || e.keyCode;
-                    if (key === 13) {
-                        currentGameState = "inGame";
-                    }
+                // document.addEventListener('keypress', function (e) {
+                //     var key = e.which || e.keyCode;
+                //     if (key === 13) {
+                //         currentGameState = "inGame";
+                //     }
                     // else if (key === 37) {
                     //     currentGameState = "inGame";
                     // } else if (key === 38) {
@@ -129,7 +135,7 @@ var Engine = (function(global) {
                     // } else if (key === 40) {
                     //     currentGameState = "inGame";
                     // }
-                });
+                //});
                 break;
         }
     }
