@@ -237,9 +237,13 @@ var Engine = (function(global) {
                 for (col = 0; col < numCols; col++) {
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                     ctx.fillStyle = "red";
+                    ctx.font = "30px Comic Sans MS";
+                    ctx.textAlign = "center";
+                    ctx.fillText("Game Over!", canvas.width/2, canvas.height/3);
+                    ctx.fillStyle = "red";
                     ctx.font = "20px Comic Sans MS";
                     ctx.textAlign = "center";
-                    ctx.fillText("Game Over! Press Enter To Restart", canvas.width/2, canvas.height/4);
+                    ctx.fillText("Press Enter To Restart", canvas.width/2, canvas.height/2.6);
                 }
             }
             break;
