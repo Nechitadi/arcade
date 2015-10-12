@@ -84,50 +84,36 @@ var Engine = (function(global) {
         // for Finite State Machine
         switch (currentGameState) {
             case "startGame":
-                //console.log(currentGameState);
-                // Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
+                // Turn the keypress event listener in app.js off
+                document.removeEventListener('keyup', input);
                 // Listen for enter key, switch game state to inGame when pressed
+                // Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
                 document.addEventListener('keydown', function (e) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
-                        // credit http://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
-                        //this.removeEventListener('keydown', arguments.callee);
                         currentGameState = "inGame";
                     }
                 });
                 break;
             // Here we do the "normal" things we'd do when the game is running, mainly updateEntities
             case "inGame":
-                //console.log(currentGameState);
+                // Turn the keypress event listener in app.js back on
+                document.addEventListener('keyup', input);
                 updateEntities(dt);
                 // Fix player head staying rendered behind top tiles
                 // Credit to https://discussions.udacity.com/t/canvas-not-clearing-player-bug-fixed/29714
                 ctx.clearRect(0,0,canvas.width,canvas.height);
                 break;
             case "gameOver":
-                document.removeEventListener('keydown', function (e) {
+                // Turn the keypress event listener in app.js off
+                document.removeEventListener('keyup', input);
+                // Listen for enter key, switch game state to inGame when pressed
+                document.addEventListener('keypress', function (e) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
                         currentGameState = "inGame";
                     }
                 });
-                //console.log(currentGameState);
-                // Listen for enter key, switch game state to inGame when pressed
-                // document.addEventListener('keypress', function (e) {
-                //     var key = e.which || e.keyCode;
-                //     if (key === 13) {
-                //         currentGameState = "inGame";
-                //     }
-                    // else if (key === 37) {
-                    //     currentGameState = "inGame";
-                    // } else if (key === 38) {
-                    //     currentGameState = "inGame";
-                    // } else if (key === 39) {
-                    //     currentGameState = "inGame";
-                    // } else if (key === 40) {
-                    //     currentGameState = "inGame";
-                    // }
-                //});
                 break;
         }
     }
