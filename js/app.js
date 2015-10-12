@@ -40,7 +40,7 @@ var speedMultiplier = 40;
 // Random speed generator
 Enemy.prototype.randomSpeed = function (){
     "use strict";
-    // speed is a random number from 1-10 times speedMultiplier
+    // Speed is a random number from 1-10 times speedMultiplier
     this.speed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
 };
 
@@ -249,7 +249,6 @@ Player.prototype.success = function() {
 Player.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    //this.currentGameState = "inGame";
 };
 
 // Move the player according to keys pressed
@@ -292,9 +291,11 @@ Player.prototype.handleInput = function(allowedKeys) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+
+// Instantiate player
 var player = new Player();
 
-// empty allEnemies array
+// Empty allEnemies array
 var allEnemies = [];
 
 // Instantiate all enemies, set to 3, push to allEnemies array
@@ -320,11 +321,12 @@ var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 60 +
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
+
 /* Re-written as a named function so we can use removeEventListener
-* during "startGame" and "gameOver." The event listener was active, so
-* pressing arrow keys changed the starting position of the player when
-* we switched to "inGame"
-*/
+ * during "startGame" and "gameOver." Before, the event listener was active
+ * during those states, so pressing arrow keys changed the starting position
+ * of the player when we switched to "inGame"
+ */
 var input = function(e) {
     "use strict";
     var allowedKeys = {
