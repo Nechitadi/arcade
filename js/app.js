@@ -226,7 +226,6 @@ Player.prototype.update = function() {
     if (this.playerLives === 0) {
     reset();
     }
-    //console.log("update gamestate " + currentGameState);
 };
 
 // Resets the player position to the start position
