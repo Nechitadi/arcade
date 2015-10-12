@@ -85,23 +85,34 @@ var Engine = (function(global) {
         // for Finite State Machine
         switch (currentGameState) {
             case "startGame":
+                //console.log(currentGameState);
                 // Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
                 // Listen for enter key, switch game state to inGame when pressed
                 document.addEventListener('keypress', function (e) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
                         currentGameState = "inGame";
+                    }else if (key === 37) {
+                        currentGameState = "inGame";
+                    } else if (key === 38) {
+                        currentGameState = "inGame";
+                    } else if (key === 39) {
+                        currentGameState = "inGame";
+                    } else if (key === 40) {
+                        currentGameState = "inGame";
                     }
                 });
                 break;
             // Here we do the "normal" things we'd do when the game is running, mainly updateEntities
             case "inGame":
+                //console.log(currentGameState);
                 updateEntities(dt);
                 // Fix player head staying rendered behind top tiles
                 // Credit to https://discussions.udacity.com/t/canvas-not-clearing-player-bug-fixed/29714
                 ctx.clearRect(0,0,canvas.width,canvas.height);
                 break;
             case "gameOver":
+                //console.log(currentGameState);
                 // Listen for enter key, switch game state to inGame when pressed
                 document.addEventListener('keypress', function (e) {
                     var key = e.which || e.keyCode;
@@ -125,6 +136,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+        //console.log("updateEntities" +player.x, +player.y);
         gem.update();
         heart.update();
     }
@@ -138,6 +150,7 @@ var Engine = (function(global) {
     function render() {
     switch (currentGameState) {
         case "startGame":
+            //console.log("startGame " +player.x, +player.y);
             // Display an empty game board with text here
             var rowImages = [
                     'images/water-block.png',   // Top row is water
@@ -182,6 +195,9 @@ var Engine = (function(global) {
             /* This array holds the relative URL to the image used
              * for that particular row of the game level.
              */
+            // player.x = 200;
+            // player.y = 400;
+            // console.log("inGame " +player.x, +player.y);
             rowImages = [
                     'images/water-block.png',   // Top row is water
                     'images/stone-block.png',   // Row 1 of 3 of stone
@@ -213,6 +229,7 @@ var Engine = (function(global) {
             renderEntities();
             break;
         case "gameOver":
+            //console.log("gameOver " +player.x, +player.y);
             // Display an empty game board with text here
             rowImages = [
                     'images/water-block.png',   // Top row is water
@@ -252,6 +269,7 @@ var Engine = (function(global) {
         });
 
         player.render();
+        //console.log(player.x, player.y);
         gem.render();
         heart.render();
     }
@@ -265,6 +283,7 @@ var Engine = (function(global) {
         currentGameState = "gameOver";
         // player = new Player();
         player.characterReset();
+        //console.log(player.x, player.y);
         // player.x = 200;
         // player.y = 400;
         speedMultiplier = 40;
@@ -301,6 +320,7 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
     global.reset = reset;
+    global.currentGameState = currentGameState;
 
 })(this);
 

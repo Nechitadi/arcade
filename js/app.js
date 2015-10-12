@@ -1,4 +1,3 @@
-
 /*----------------------------------------------------------------------------*/
 /*-----------------------------Enemy------------------------------------------*/
 
@@ -329,6 +328,8 @@ document.addEventListener('keyup', function(e) {
         40: 'down',
         13: 'enter'
     };
-
+console.log("gamestate " + currentGameState);
+//while (currentGameState === "inGame"){
     player.handleInput(allowedKeys[e.keyCode]);
+//    };
 });
