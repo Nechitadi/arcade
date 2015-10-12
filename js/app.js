@@ -329,8 +329,6 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-//console.log("listener gamestate " + player.currentGameState);
-//while (player.currentGameState === "inGame"){
+
     player.handleInput(allowedKeys[e.keyCode]);
-//    };
 });

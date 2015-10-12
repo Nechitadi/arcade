@@ -13,7 +13,6 @@
  * the canvas' context (ctx) object globally available to make writing app.js
  * a little simpler to work with.
  */
-"use strict";
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -88,9 +87,11 @@ var Engine = (function(global) {
                 //console.log(currentGameState);
                 // Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
                 // Listen for enter key, switch game state to inGame when pressed
-                document.addEventListener('keypress', function (e) {
+                document.addEventListener('keydown', function (e) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
+                        // credit http://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
+                        //this.removeEventListener('keydown', arguments.callee);
                         currentGameState = "inGame";
                     }
                 });
@@ -104,21 +105,12 @@ var Engine = (function(global) {
                 ctx.clearRect(0,0,canvas.width,canvas.height);
                 break;
             case "gameOver":
-                document.removeEventListener('keyup', function(e) {
-                "use strict";
-                var allowedKeys = {
-                    37: 'left',
-                    38: 'up',
-                    39: 'right',
-                    40: 'down'
-                };
+                document.removeEventListener('keydown', function (e) {
+                    var key = e.which || e.keyCode;
+                    if (key === 13) {
+                        currentGameState = "inGame";
+                    }
                 });
-                // document.removeEventListener('keypress', function (e) {
-                //     var key = e.which || e.keyCode;
-                //     if (key === 13) {
-                //         currentGameState = "inGame";
-                //     }
-                // });
                 //console.log(currentGameState);
                 // Listen for enter key, switch game state to inGame when pressed
                 // document.addEventListener('keypress', function (e) {
