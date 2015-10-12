@@ -92,15 +92,15 @@ var Engine = (function(global) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
                         currentGameState = "inGame";
-                    }else if (key === 37) {
-                        currentGameState = "inGame";
-                    } else if (key === 38) {
-                        currentGameState = "inGame";
-                    } else if (key === 39) {
-                        currentGameState = "inGame";
-                    } else if (key === 40) {
-                        currentGameState = "inGame";
-                    }
+                    // }else if (key === 37) {
+                    //     currentGameState = "inGame";
+                    // } else if (key === 38) {
+                    //     currentGameState = "inGame";
+                    // } else if (key === 39) {
+                    //     currentGameState = "inGame";
+                    // } else if (key === 40) {
+                    //     currentGameState = "inGame";
+                    // }
                 });
                 break;
             // Here we do the "normal" things we'd do when the game is running, mainly updateEntities
@@ -118,7 +118,15 @@ var Engine = (function(global) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
                         currentGameState = "inGame";
-                    }
+                    // }else if (key === 37) {
+                    //     currentGameState = "inGame";
+                    // } else if (key === 38) {
+                    //     currentGameState = "inGame";
+                    // } else if (key === 39) {
+                    //     currentGameState = "inGame";
+                    // } else if (key === 40) {
+                    //     currentGameState = "inGame";
+                    // }
                 });
                 break;
         }
@@ -320,7 +328,7 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
     global.reset = reset;
-    global.currentGameState = currentGameState;
+    //global.currentGameState = currentGameState;
 
 })(this);
 

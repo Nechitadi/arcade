@@ -226,6 +226,7 @@ Player.prototype.update = function() {
     if (this.playerLives === 0) {
     reset();
     }
+    //console.log("update gamestate " + currentGameState);
 };
 
 // Resets the player position to the start position
@@ -249,6 +250,7 @@ Player.prototype.success = function() {
 Player.prototype.render = function() {
     "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    //this.currentGameState = "inGame";
 };
 
 // Move the player according to keys pressed
@@ -328,8 +330,8 @@ document.addEventListener('keyup', function(e) {
         40: 'down',
         13: 'enter'
     };
-console.log("gamestate " + currentGameState);
-//while (currentGameState === "inGame"){
+console.log("listener gamestate " + player.currentGameState);
+//while (player.currentGameState === "inGame"){
     player.handleInput(allowedKeys[e.keyCode]);
 //    };
 });
