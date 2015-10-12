@@ -321,6 +321,10 @@ var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 60 +
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
+// Re-written as a named function so we can use removeEventListener
+// during "startGame" and "gameOver." The event listener was active, so
+// pressing arrow keys changed the starting position of the player when
+// we switched to "inGame"
 var input = function(e) {
     "use strict";
     var allowedKeys = {
@@ -333,14 +337,3 @@ var input = function(e) {
 };
 document.addEventListener('keyup', input);
 
-// document.addEventListener('keyup', function(e) {
-//     "use strict";
-//     var allowedKeys = {
-//         37: 'left',
-//         38: 'up',
-//         39: 'right',
-//         40: 'down'
-//     };
-
-//     player.handleInput(allowedKeys[e.keyCode]);
-// });

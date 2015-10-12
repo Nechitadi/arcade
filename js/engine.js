@@ -130,7 +130,6 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
-        //console.log("updateEntities" +player.x, +player.y);
         gem.update();
         heart.update();
     }
@@ -144,7 +143,6 @@ var Engine = (function(global) {
     function render() {
     switch (currentGameState) {
         case "startGame":
-            //console.log("startGame " +player.x, +player.y);
             // Display an empty game board with text here
             var rowImages = [
                     'images/water-block.png',   // Top row is water
@@ -191,7 +189,6 @@ var Engine = (function(global) {
              */
             // player.x = 200;
             // player.y = 400;
-            // console.log("inGame " +player.x, +player.y);
             rowImages = [
                     'images/water-block.png',   // Top row is water
                     'images/stone-block.png',   // Row 1 of 3 of stone
@@ -223,7 +220,6 @@ var Engine = (function(global) {
             renderEntities();
             break;
         case "gameOver":
-            //console.log("gameOver " +player.x, +player.y);
             // Display an empty game board with text here
             rowImages = [
                     'images/water-block.png',   // Top row is water
@@ -263,7 +259,6 @@ var Engine = (function(global) {
         });
 
         player.render();
-        //console.log(player.x, player.y);
         gem.render();
         heart.render();
     }
@@ -275,11 +270,7 @@ var Engine = (function(global) {
     //Reset the game to its original state and change currentGameState to gameOver
     function reset() {
         currentGameState = "gameOver";
-        // player = new Player();
         player.characterReset();
-        //console.log(player.x, player.y);
-        // player.x = 200;
-        // player.y = 400;
         speedMultiplier = 40;
         player.playerScore = 0;
         player.playerLives = 3;
@@ -314,7 +305,6 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
     global.reset = reset;
-    //global.currentGameState = currentGameState;
 
 })(this);
 
