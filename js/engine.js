@@ -92,7 +92,8 @@ var Engine = (function(global) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
                         currentGameState = "inGame";
-                    // }else if (key === 37) {
+                    }
+                    //else if (key === 37) {
                     //     currentGameState = "inGame";
                     // } else if (key === 38) {
                     //     currentGameState = "inGame";
@@ -118,7 +119,8 @@ var Engine = (function(global) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
                         currentGameState = "inGame";
-                    // }else if (key === 37) {
+                    }
+                    // else if (key === 37) {
                     //     currentGameState = "inGame";
                     // } else if (key === 38) {
                     //     currentGameState = "inGame";
