@@ -160,7 +160,7 @@ var Engine = (function(global) {
                 for (col = 0; col < numCols; col++) {
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                     ctx.fillStyle = "red";
-                    ctx.font = "30px Comic Sans MS";
+                    ctx.font = "40px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Let's Play Frogger!", canvas.width/2, canvas.height/5.5);
                     ctx.fillStyle = "red";
@@ -237,7 +237,7 @@ var Engine = (function(global) {
                 for (col = 0; col < numCols; col++) {
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
                     ctx.fillStyle = "red";
-                    ctx.font = "30px Comic Sans MS";
+                    ctx.font = "40px Comic Sans MS";
                     ctx.textAlign = "center";
                     ctx.fillText("Game Over!", canvas.width/2, canvas.height/3);
                     ctx.fillStyle = "red";
