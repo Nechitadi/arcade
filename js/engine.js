@@ -263,7 +263,10 @@ var Engine = (function(global) {
     //Reset the game to its original state and change currentGameState to gameOver
     function reset() {
         currentGameState = "gameOver";
+        // player = new Player();
         player.characterReset();
+        // player.x = 200;
+        // player.y = 400;
         speedMultiplier = 40;
         player.playerScore = 0;
         player.playerLives = 3;
