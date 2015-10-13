@@ -33,4 +33,5 @@ Resources I referred to while working on this project:
 * https://discussions.udacity.com/t/finite-state-machine-to-model-game-states/21955
 * https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 * http://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
+* http://stackoverflow.com/questions/14542062/eventlistener-enter-key
 
