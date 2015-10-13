@@ -30,6 +30,7 @@ Resources I referred to while working on this project:
 * The Udacity Front-End Nanodegree Forums: https://discussions.udacity.com/c/nd001-project-3-classic-arcade-game-clone
 * https://discussions.udacity.com/t/having-trouble-displaying-the-score/26963
 * https://discussions.udacity.com/t/need-help-refactoring/32466
+* https://discussions.udacity.com/t/finite-state-machine-to-model-game-states/21955
 * https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 * http://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
 
