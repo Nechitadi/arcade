@@ -307,12 +307,14 @@ for (var i = 0; i < 3; i++) {
 }
 
 // Instantiate Gem
-// Gems start at a random spot aligned with one of the gravel tiles
+// Gems appear at one of the following x positions: 0, 101, 202, 303, 404
+// And at one of the following Y positions: 60, 145, 230
 var gem = new Gem (101 * Math.floor(Math.random() * 4) + 0, 60 +
     (85 * Math.floor(Math.random() * 3) + 0));
 
 // Instantiate heart
-// Hearts start at a random spot aligned with one of the gravel tiles
+// Hearts appear at one of the following x positions: 0, 101, 202, 303, 404
+// And at one of the following Y positions: 60, 145, 230
 var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 60 +
     (85 * Math.floor(Math.random() * 3) + 0));
 
@@ -326,6 +328,7 @@ var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 60 +
  * during "startGame" and "gameOver." Before, the event listener was active
  * during those states, so pressing arrow keys changed the starting position
  * of the player when we switched to "inGame"
+ * credit http://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
  */
 var input = function(e) {
     "use strict";
