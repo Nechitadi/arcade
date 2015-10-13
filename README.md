@@ -37,4 +37,5 @@ Resources I referred to while working on this project:
 * http://stackoverflow.com/questions/14542062/eventlistener-enter-key
 * http://stackoverflow.com/questions/21553547/how-to-clear-timeout-in-javascript
 * https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearTimeout
+* https://discussions.udacity.com/t/jshint-warnings/34854/5
 
