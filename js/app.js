@@ -90,6 +90,7 @@ var Gem = function(x,y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/Gem_Orange.png';
+    this.gemWaitTime = undefined;
 };
 
 // Update gem, call checkCollision
@@ -127,7 +128,11 @@ Gem.prototype.collisionDetected = function() {
     this.x = 900;
     this.y = 900;
     player.playerScore += 30;
-    setTimeout( function() {
+    this.wait();
+};
+
+Gem.prototype.wait = function() {
+    this.gemWaitTime = setTimeout( function() {
         gem.gemReset(); // this.gemReset() doesn't work
     }, 5000);
 };
@@ -190,8 +195,8 @@ Heart.prototype.collisionDetected = function() {
     this.wait();
 };
 
-Heart.prototype.wait = function () {
-    var heartWaitTime = setTimeout( function() {
+Heart.prototype.wait = function() {
+    this.heartWaitTime = setTimeout( function() {
         heart.heartReset(); // this.heartReset() doesn't work
     }, 30000);
 };
@@ -199,7 +204,6 @@ Heart.prototype.wait = function () {
 // Reset the heart to a new location
 Heart.prototype.heartReset = function() {
     "use strict";
-    console.log("heartReset called")
     //Hearts appear at one of the following x positions: 0, 101, 202, 303, 404
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
     //Hearts appear at one of the following Y positions: 70, 155, 240
@@ -230,6 +234,7 @@ var Player = function() {
 Player.prototype.update = function() {
     "use strict";
     if (this.playerLives === 0) {
+    // clearTimeout(heart.heartWaitTime);
     reset();
     }
 };

@@ -287,6 +287,7 @@ var Engine = (function(global) {
         heart.heartReset();
         clearTimeout(heart.heartWaitTime);
         gem.gemReset();
+        clearTimeout(gem.gemWaitTime);
         speedMultiplier = 40;
         player.playerScore = 0;
         player.playerLives = 3;
