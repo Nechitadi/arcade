@@ -86,20 +86,24 @@ var Engine = (function(global) {
         switch (currentGameState) {
             case "startGame":
                 // Turn the keypress event listener in app.js off
-                document.removeEventListener('keyup', input);
+                document.removeEventListener("keyup", input);
                 // Listen for enter key, switch game state to inGame when pressed
                 // Credit http://stackoverflow.com/questions/14542062/eventlistener-enter-key
-                document.addEventListener('keydown', function (e) {
+                var startInput = function(e) {
+                    // Use e.which or e.keyCode for browser compatibility
                     var key = e.which || e.keyCode;
+                    // Enter key changes game state to "inGame"
                     if (key === 13) {
                         currentGameState = "inGame";
                     }
-                });
+                };
+                document.addEventListener("keydown", startInput);
                 break;
             // Here we do the "normal" things we'd do when the game is running, mainly updateEntities
             case "inGame":
                 // Turn the keypress event listener in app.js back on
                 document.addEventListener('keyup', input);
+                // Call updateEntities to update each entity in the game
                 updateEntities(dt);
                 // Fix player head staying rendered behind top tiles
                 // Credit to https://discussions.udacity.com/t/canvas-not-clearing-player-bug-fixed/29714
@@ -109,12 +113,13 @@ var Engine = (function(global) {
                 // Turn the keypress event listener in app.js off
                 document.removeEventListener('keyup', input);
                 // Listen for enter key, switch game state to inGame when pressed
-                document.addEventListener('keypress', function (e) {
+                var gameoverInput = function(e) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
                         currentGameState = "inGame";
-                    }
-                });
+                    };
+                };
+                document.addEventListener("keydown", gameoverInput);
                 break;
         }
     }
