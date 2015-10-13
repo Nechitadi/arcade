@@ -302,7 +302,7 @@ var allEnemies = [];
 for (var i = 0; i < 3; i++) {
     //startSpeed is a random number from 1-10 times speedMultiplier
     var startSpeed = speedMultiplier * Math.floor(Math.random() * 10 + 1);
-    //enemys start off canvas (x-100) at the following Y positions: 60, 145, 230
+    //enemys start off canvas (x = -100) at the following Y positions: 60, 145, 230
     allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
 }
 
