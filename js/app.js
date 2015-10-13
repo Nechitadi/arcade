@@ -187,12 +187,12 @@ Heart.prototype.collisionDetected = function() {
     this.y = 900;
     player.playerLives += 1;
     setTimeout( function() {
-        heart.gemReset(); // this.gemReset() doesn't work
+        heart.heartReset(); // this.heartReset() doesn't work
     }, 30000);
 };
 
 // Reset the heart to a new location
-Heart.prototype.gemReset = function() {
+Heart.prototype.heartReset = function() {
     "use strict";
     //Hearts appear at one of the following x positions: 0, 101, 202, 303, 404
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
@@ -237,7 +237,7 @@ Player.prototype.characterReset = function() {
     this.y = this.startingY;
 };
 
-// Increment score and increase difficulty when player reaches top of water
+// Increase score and increase difficulty when player reaches top of water
 Player.prototype.success = function() {
     "use strict";
     this.playerScore += 20;
