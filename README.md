@@ -35,4 +35,6 @@ Resources I referred to while working on this project:
 * https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 * http://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
 * http://stackoverflow.com/questions/14542062/eventlistener-enter-key
+* http://stackoverflow.com/questions/21553547/how-to-clear-timeout-in-javascript
+* https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearTimeout
 
