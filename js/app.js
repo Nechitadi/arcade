@@ -149,6 +149,7 @@ var Heart = function(x,y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/Heart.png';
+    this.heartWaitTime = undefined;
 };
 
 // Update heart, call checkCollision
@@ -186,7 +187,11 @@ Heart.prototype.collisionDetected = function() {
     this.x = 900;
     this.y = 900;
     player.playerLives += 1;
-    setTimeout( function() {
+    this.wait();
+};
+
+Heart.prototype.wait = function () {
+    var heartWaitTime = setTimeout( function() {
         heart.heartReset(); // this.heartReset() doesn't work
     }, 30000);
 };
@@ -194,6 +199,7 @@ Heart.prototype.collisionDetected = function() {
 // Reset the heart to a new location
 Heart.prototype.heartReset = function() {
     "use strict";
+    console.log("heartReset called")
     //Hearts appear at one of the following x positions: 0, 101, 202, 303, 404
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
     //Hearts appear at one of the following Y positions: 70, 155, 240
