@@ -64,7 +64,7 @@ Enemy.prototype.checkCollision = function() {
     // Set hitboxes for collision detection
     var playerBox = {x: player.x, y: player.y, width: 50, height: 40};
     var enemyBox = {x: this.x, y: this.y, width: 60, height: 70};
-    // Check for collisions
+    // Check for collisions, if playerBox intersects enemyBox, we have one
     if (playerBox.x < enemyBox.x + enemyBox.width &&
         playerBox.x + playerBox.width > enemyBox.x &&
         playerBox.y < enemyBox.y + enemyBox.height &&
@@ -74,7 +74,7 @@ Enemy.prototype.checkCollision = function() {
     }
 };
 
-// Collision detected, decrement playerLives and reset the character
+// Collision detected, decrement playerLives and reset the player
 Enemy.prototype.collisionDetected = function() {
     "use strict";
     player.playerLives -= 1;
@@ -110,7 +110,7 @@ Gem.prototype.checkCollision = function() {
     // Set hitboxes for collision detection
     var playerBox = {x: player.x, y: player.y, width: 50, height: 40};
     var gemBox = {x: this.x, y: this.y, width: 60, height: 70};
-    // Check for collisions
+    // Check for collisions, if playerBox intersects gemBox, we have one
     if (playerBox.x < gemBox.x + gemBox.width &&
         playerBox.x + playerBox.width > gemBox.x &&
         playerBox.y < gemBox.y + gemBox.height &&
@@ -121,7 +121,7 @@ Gem.prototype.checkCollision = function() {
 };
 
 // Gem collision detected, hide the gem off canvas,
-// Increment player score, wait 5 seconds, then reset the gem
+// Increase player score, wait 5 seconds, then reset the gem
 Gem.prototype.collisionDetected = function() {
     "use strict";
     this.x = 900;
@@ -169,7 +169,7 @@ Heart.prototype.checkCollision = function() {
     // Set hitboxes for collision detection
     var playerBox = {x: player.x, y: player.y, width: 50, height: 40};
     var heartBox = {x: this.x, y: this.y, width: 60, height: 70};
-    // Check for collisions
+    // Check for collisions, if playerBox intersects heartBox, we have one
     if (playerBox.x < heartBox.x + heartBox.width &&
         playerBox.x + playerBox.width > heartBox.x &&
         playerBox.y < heartBox.y + heartBox.height &&
@@ -196,8 +196,8 @@ Heart.prototype.heartReset = function() {
     "use strict";
     //Hearts appear at one of the following x positions: 0, 101, 202, 303, 404
     this.x = (101 * Math.floor(Math.random() * 4) + 0);
-    //Hearts appear at one of the following Y positions: 60, 145, 230
-    this.y = (60 + (85 * Math.floor(Math.random() * 3) + 0));
+    //Hearts appear at one of the following Y positions: 70, 155, 240
+    this.y = (70 + (85 * Math.floor(Math.random() * 3) + 0));
 };
 
 /*----------------------------------------------------------------------------*/
@@ -314,8 +314,8 @@ var gem = new Gem (101 * Math.floor(Math.random() * 4) + 0, 60 +
 
 // Instantiate heart
 // Hearts appear at one of the following x positions: 0, 101, 202, 303, 404
-// And at one of the following Y positions: 60, 145, 230
-var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 60 +
+// And at one of the following Y positions: 70, 155, 240
+var heart = new Heart (101 * Math.floor(Math.random() * 4) + 0, 70 +
     (85 * Math.floor(Math.random() * 3) + 0));
 
 /*----------------------------------------------------------------------------*/
