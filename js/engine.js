@@ -285,6 +285,7 @@ var Engine = (function(global) {
         currentGameState = "gameOver";
         player.characterReset();
         heart.heartReset();
+        clearTimeout(heart.heartWaitTime);
         gem.gemReset();
         speedMultiplier = 40;
         player.playerScore = 0;
