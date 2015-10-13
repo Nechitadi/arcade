@@ -157,6 +157,7 @@ var Engine = (function(global) {
                 numCols = 5,
                 row, col;
 
+            // Text to display over the game board
             for (row = 0; row < numRows; row++) {
                 for (col = 0; col < numCols; col++) {
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
@@ -188,8 +189,6 @@ var Engine = (function(global) {
             /* This array holds the relative URL to the image used
              * for that particular row of the game level.
              */
-            // player.x = 200;
-            // player.y = 400;
             rowImages = [
                     'images/water-block.png',   // Top row is water
                     'images/stone-block.png',   // Row 1 of 3 of stone
@@ -234,6 +233,7 @@ var Engine = (function(global) {
                 numCols = 5,
                 row, col;
 
+            // Text to display over the game board
             for (row = 0; row < numRows; row++) {
                 for (col = 0; col < numCols; col++) {
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
