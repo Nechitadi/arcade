@@ -1,4 +1,3 @@
-"use strict";
 /* Engine.js
  * This file provides the game loop functionality (update entities and render),
  * draws the initial game board on the screen, and then calls the update and
@@ -14,7 +13,9 @@
  * the canvas' context (ctx) object globally available to make writing app.js
  * a little simpler to work with.
  */
+/*jshint -W030 */
 var Engine = (function(global) {
+    "use strict";
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -118,7 +119,7 @@ var Engine = (function(global) {
                     var key = e.which || e.keyCode;
                     if (key === 13) {
                         currentGameState = "inGame";
-                    };
+                    }
                 };
                 document.addEventListener("keydown", gameoverInput);
                 break;
@@ -206,8 +207,7 @@ var Engine = (function(global) {
                     'images/grass-block.png'    // Row 2 of 2 of grass
                 ],
                 numRows = 6,
-                numCols = 5,
-                row, col;
+                numCols = 5;
 
             /* Loop through the number of rows and columns we've defined above
              * and, using the rowImages array, draw the correct image for that
@@ -238,8 +238,7 @@ var Engine = (function(global) {
                     'images/grass-block.png'    // Row 2 of 2 of grass
                 ],
                 numRows = 6,
-                numCols = 5,
-                row, col;
+                numCols = 5;
 
             for (row = 0; row < numRows; row++) {
                 for (col = 0; col < numCols; col++) {
