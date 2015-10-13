@@ -83,6 +83,7 @@ var Engine = (function(global) {
     function update(dt) {
         // Credit https://discussions.udacity.com/t/finite-state-machine-to-model-game-states/21955
         // for Finite State Machine
+        // Change game behavior according to game state
         switch (currentGameState) {
             case "startGame":
                 // Turn the keypress event listener in app.js off
@@ -147,6 +148,7 @@ var Engine = (function(global) {
      * they are just drawing the entire screen over and over.
      */
     function render() {
+    // Render different game states according to each case
     switch (currentGameState) {
         case "startGame":
             // Display an empty game board with text here
@@ -162,10 +164,11 @@ var Engine = (function(global) {
                 numCols = 5,
                 row, col;
 
-            // Text to display over the game board
+
             for (row = 0; row < numRows; row++) {
                 for (col = 0; col < numCols; col++) {
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                    // Text to display over the game board
                     ctx.fillStyle = "red";
                     ctx.font = "40px Comic Sans MS";
                     ctx.textAlign = "center";
@@ -238,10 +241,10 @@ var Engine = (function(global) {
                 numCols = 5,
                 row, col;
 
-            // Text to display over the game board
             for (row = 0; row < numRows; row++) {
                 for (col = 0; col < numCols; col++) {
                     ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                    // Text to display over the game board
                     ctx.fillStyle = "red";
                     ctx.font = "40px Comic Sans MS";
                     ctx.textAlign = "center";
@@ -309,9 +312,9 @@ var Engine = (function(global) {
         ]);
     Resources.onReady(init);
 
-    /* Assign the canvas' context object to the global variable (the window
-     * object when run in a browser) so that developer's can use it more easily
-     * from within their app.js files.
+    /* Assign the canvas' context object and the reset function to the global
+     * variable (the window object when run in a browser) so that developer's
+     * can use it more easily from within their app.js files.
      */
     global.ctx = ctx;
     global.reset = reset;
