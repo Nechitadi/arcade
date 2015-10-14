@@ -1,4 +1,9 @@
 /*----------------------------------------------------------------------------*/
+/*----------------------------Constants---------------------------------------*/
+var TILE_WIDTH = 101,
+    TILE_HEIGHT = 83;
+
+/*----------------------------------------------------------------------------*/
 /*-----------------------------Enemy------------------------------------------*/
 
 // Enemies our player must avoid
@@ -234,8 +239,8 @@ var Player = function() {
 Player.prototype.update = function() {
     "use strict";
     if (this.playerLives === 0) {
-    // clearTimeout(heart.heartWaitTime);
-    reset();
+        // clearTimeout(heart.heartWaitTime);
+        reset();
     }
 };
 
@@ -269,13 +274,13 @@ Player.prototype.handleInput = function(allowedKeys) {
         case "left":
             //check for wall, otherwise move left
             if (this.x > 0) {
-                this.x -= 101;
+                this.x -= TILE_WIDTH;
             }
             break;
         case "right":
             //check for wall, otherwise move right
             if (this.x < 402) {
-                this.x += 101;
+                this.x += TILE_WIDTH;
             }
             break;
         case "up":
@@ -284,13 +289,13 @@ Player.prototype.handleInput = function(allowedKeys) {
             if (this.y < 0) {
                 this.success();
             } else {
-                this.y -= 83;
+                this.y -= TILE_HEIGHT;
             }
             break;
         case "down":
             //check for bottom, otherwise move down
             if (this.y < 400) {
-                this.y += 83;
+                this.y += TILE_HEIGHT;
             }
             break;
     }
