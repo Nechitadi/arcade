@@ -131,6 +131,8 @@ Gem.prototype.collisionDetected = function() {
     this.wait();
 };
 
+// Call setTimeout in a function so we can assign it to a variable
+// Necessary for clearTimeout(gem.gemWaitTime) to work
 Gem.prototype.wait = function() {
     this.gemWaitTime = setTimeout( function() {
         gem.gemReset(); // this.gemReset() doesn't work
@@ -195,6 +197,8 @@ Heart.prototype.collisionDetected = function() {
     this.wait();
 };
 
+// Call setTimeout in a function so we can assign it to a variable
+// Necessary for clearTimeout(heart.heartWaitTime) to work
 Heart.prototype.wait = function() {
     this.heartWaitTime = setTimeout( function() {
         heart.heartReset(); // this.heartReset() doesn't work
